@@ -1,6 +1,6 @@
 # my_website
 
-## Project setup
+### Project setup
 ```
 npm install
 ```
