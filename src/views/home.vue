@@ -6,6 +6,7 @@
 
         <el-button type="primary">Primary</el-button>
         <i class="iconfont icon-star"></i>
+        <div>test</div>
     </div>
 </template>
 <script setup lang="ts">
