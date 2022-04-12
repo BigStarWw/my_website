@@ -4,7 +4,15 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    A: typeof import('./src/components/a.vue')['default']
+    Abc: typeof import('./src/components/abc.vue')['default']
+    BaseFooter: typeof import('./src/components/base-footer/index.vue')['default']
+    'BaseFooter copy': typeof import('./src/components/base-footer copy/index.vue')['default']
+    BaseHeader: typeof import('./src/components/base-header/index.vue')['default']
+    'BaseHeader copy': typeof import('./src/components/layouts/base-header copy.vue')['default']
+    BaseHeader2: typeof import('./src/components/base-header2/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    Test: typeof import('./src/components/test/index.vue')['default']
   }
 }
 

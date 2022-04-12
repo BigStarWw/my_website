@@ -6,6 +6,34 @@
   "description": "my_website",
   "glyphs": [
     {
+      "icon_id": "1985057",
+      "name": "夜间",
+      "font_class": "yejian",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "4253481",
+      "name": "白天",
+      "font_class": "baitian",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "13478683",
+      "name": "白天",
+      "font_class": "A",
+      "unicode": "e6e5",
+      "unicode_decimal": 59109
+    },
+    {
+      "icon_id": "24111897",
+      "name": "夜间",
+      "font_class": "yejian2",
+      "unicode": "fc09",
+      "unicode_decimal": 64521
+    },
+    {
       "icon_id": "11232181",
       "name": "star",
       "font_class": "star",
