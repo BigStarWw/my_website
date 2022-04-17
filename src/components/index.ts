@@ -1,11 +1,13 @@
 import { App } from 'vue'
 import BaseHeader from './base-header/index.vue'
 import BaseFooter from './base-footer/index.vue'
+import BaseToolbar from './base-toolbar/index.vue'
 
 
 const components = [
     BaseHeader,
     BaseFooter,
+    BaseToolbar,
 ]
 
 /**

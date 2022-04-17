@@ -11,6 +11,7 @@ declare module 'vue' {
     BaseHeader: typeof import('./src/components/base-header/index.vue')['default']
     'BaseHeader copy': typeof import('./src/components/layouts/base-header copy.vue')['default']
     BaseHeader2: typeof import('./src/components/base-header2/index.vue')['default']
+    BaseToolbar: typeof import('./src/components/base-toolbar/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     Test: typeof import('./src/components/test/index.vue')['default']
   }

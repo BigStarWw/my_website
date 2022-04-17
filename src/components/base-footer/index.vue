@@ -17,6 +17,10 @@ export default defineComponent({
 </script>
 <style scoped lang="scss">
     .base-footer-container{
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       align-items: center;
       justify-content: center;

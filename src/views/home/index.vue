@@ -23,9 +23,9 @@ onMounted(() => {
 <style lang="scss" scoped>
 .home-container {
   width: 100%;
-  height: calc(100vh - 60px);
-  background-color: var(--color, transparent);
-  color: var(--text-color, #000);
+  height: 100vh;
+  background: url("@/assets/images/bg.jpg") no-repeat center;
+  background-size: 100% 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

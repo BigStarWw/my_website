@@ -46,6 +46,7 @@ export default defineComponent({
 .base-header-container {
   width: 100%;
   position: fixed;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;

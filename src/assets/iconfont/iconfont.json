@@ -6,6 +6,41 @@
   "description": "my_website",
   "glyphs": [
     {
+      "icon_id": "6901606",
+      "name": "公司",
+      "font_class": "gongsi2",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "10548957",
+      "name": "主页-项目1",
+      "font_class": "xiangmu1",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "12932068",
+      "name": "l-developer",
+      "font_class": "l-developer",
+      "unicode": "e791",
+      "unicode_decimal": 59281
+    },
+    {
+      "icon_id": "3877902",
+      "name": "火箭",
+      "font_class": "huojian1",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "28907950",
+      "name": "火箭",
+      "font_class": "huojian1-copy",
+      "unicode": "fc0a",
+      "unicode_decimal": 64522
+    },
+    {
       "icon_id": "1985057",
       "name": "夜间",
       "font_class": "yejian",
