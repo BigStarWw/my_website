@@ -6,6 +6,20 @@
   "description": "my_website",
   "glyphs": [
     {
+      "icon_id": "930033",
+      "name": "绑定邮箱",
+      "font_class": "bangdingyouxiang",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "4937000",
+      "name": "github-fill",
+      "font_class": "github-fill",
+      "unicode": "e885",
+      "unicode_decimal": 59525
+    },
+    {
       "icon_id": "6901606",
       "name": "公司",
       "font_class": "gongsi2",

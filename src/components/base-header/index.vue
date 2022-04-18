@@ -1,12 +1,15 @@
 <template>
-  <header class="base-header-container">
+  <header
+    class="base-header-container"
+    :class="!isHomePage && appEleScrollTop > 10 ? 'base-header-float' : ''"
+  >
     <div class="base-header-left"></div>
     <div class="base-header-right">
       <nav class="nav">
         <ul>
-          <li>首页</li>
-          <li>关于我</li>
-          <li>小插件demo</li>
+          <li><router-link to="/home">首页</router-link></li>
+          <li><router-link to="/about">关于我</router-link></li>
+          <li><router-link to="/">小插件demo</router-link></li>
         </ul>
       </nav>
 
@@ -32,17 +35,35 @@ import { defineComponent, ref, reactive, toRefs } from "vue";
 export default defineComponent({
   name: "BaseHeader",
   props: {},
-  setup(props, context) {
-    const isDark = ref<boolean>(false);
-
+  data() {
     return {
-      isDark,
+      isHomePage: true as boolean,
+      appEleScrollTop: 0 as number,
+      aboutMeTargetDistance: 0 as number,
     };
+  },
+  watch: {
+    $route: {
+      handler: function (route) {
+        this.isHomePage = route.path === "/home";
+      },
+    },
+  },
+  mounted() {
+    const appEle = document.getElementById("app-container") as HTMLElement;
+    appEle.addEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      const appEle = document.getElementById("app-container") as HTMLElement;
+      this.appEleScrollTop = appEle.scrollTop;
+    },
   },
 });
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/styles/variable.scss";
 .base-header-container {
   width: 100%;
   position: fixed;
@@ -59,35 +80,56 @@ export default defineComponent({
     justify-content: space-between;
     .nav {
       margin-right: 20px;
-      // border-right: solid 1px #fff;
-      ul{
+      ul {
         display: flex;
         margin: 0;
       }
-      li{
+      li {
         margin: 0 16px;
         height: 20px;
         line-height: 20px;
         box-sizing: border-box;
         cursor: pointer;
-        color: #fff;
-        font-weight: bold;
-        font-size: 18px;
-        &:hover{
+
+        &:hover {
           color: #fff;
           border-bottom: solid 2px #fff;
-          transition: border .2s;
+          transition: border 0.2s;
         }
-        
+        a {
+          color: #fff;
+          font-weight: bold;
+          font-size: 18px;
+        }
       }
     }
     .switch-theme-box {
-      i{
+      i {
         font-size: 32px;
         color: #fff;
         cursor: pointer;
       }
       i.dark-icon {
+      }
+    }
+  }
+}
+
+.base-header-float {
+  background: #fff;
+  box-shadow: 0 -6px 11px 0px $mainTxtColor;
+  color: $mainTxtColor;
+  .base-header-right {
+    .nav {
+      li {
+        a {
+          color: $mainTxtColor;
+        }
+      }
+    }
+    .switch-theme-box {
+      i {
+        color: $mainTxtColor;
       }
     }
   }
