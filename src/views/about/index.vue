@@ -5,21 +5,16 @@
     </div>
     <div class="about-me flex-center" ref="aboutMeEle">
       <h4 class="about-title">关于我</h4>
-      <div class="about-me-content flex-center">
+      <div
+        class="about-me-content flex-center"
+        :style="
+             'transform: translateY(' +
+              -(30 - appEleScrollTop / 15) +
+              'px);'
+        "
+      >
         <div class="about-me-pic"></div>
-        <div
-          class="about-me-desc"
-          :style="
-            appEleScrollTop > aboutMeTargetDistance - 60
-              ? 'transform: translateY(' +
-                -(30 - (appEleScrollTop - aboutMeTargetDistance) / 10) +
-                'px);opacity:' +
-                ((appEleScrollTop - aboutMeTargetDistance) / 150 > 1
-                  ? 1
-                  : (appEleScrollTop - aboutMeTargetDistance) / 150)
-              : ''
-          "
-        >
+        <div class="about-me-desc">
           <p class="about-me-desc-txt">嗨～，我是一名94年狮子座女生</p>
           <p class="about-me-desc-txt"><span>现居：</span>四川成都</p>
           <p class="about-me-desc-txt"><span>昵称：</span>会闪的大星星</p>
@@ -50,27 +45,121 @@
         <p class="statistic-txt"><span>3</span>家公司</p>
       </div>
     </div>
-    <div>技能</div>
-    <div>爱好</div>
-    <div>图片展示</div>
+    <div class="about-skill flex-center">
+      <h4 class="about-title">技能</h4>
+      <AboutSkill></AboutSkill>
+    </div>
+    <div class="about-hobbies flex-center">
+      <h4 class="about-title">兴趣爱好</h4>
+      <div class="about-hobbies-content">
+        <div class="about-hobbies-box about-hobbies-travel">
+          <img
+            class="bigger"
+            src="../../assets/images/about/travel/travel01.jpeg"
+          />
+          <img
+            class="smaller"
+            src="../../assets/images/about/travel/travel02.jpeg"
+            :style="
+              appEleScrollTop > aboutHobbiesScrollDistance + 100
+                ? 'transform: translateY(' +
+                  -(30 - (appEleScrollTop - aboutHobbiesScrollDistance) / 10) +
+                  'px);'
+                : ''
+            "
+          />
+          <div
+            class="about-hobbies-title"
+            :class="
+              appEleScrollTop > aboutHobbiesScrollDistance + 100
+                ? 'titleAnimation'
+                : ''
+            "
+          >
+            <span class="about-hobbies-txt">旅行</span>
+          </div>
+        </div>
+
+        <div class="about-hobbies-box about-hobbies-code">
+          <img
+            class="smaller"
+            src="../../assets/images/about/code/code01.jpg"
+            :style="
+              appEleScrollTop > aboutHobbiesScrollDistance + 850
+                ? 'transform: translateY(' +
+                  -(30 - (appEleScrollTop - aboutHobbiesScrollDistance) / 10) +
+                  'px);'
+                : ''
+            "
+          />
+          <img class="bigger" src="../../assets/images/about/code/code02.jpg" />
+          <div
+            class="about-hobbies-title"
+            :class="
+              appEleScrollTop > aboutHobbiesScrollDistance + 1000
+                ? 'titleAnimation'
+                : ''
+            "
+          >
+            <span class="about-hobbies-txt">开发</span>
+          </div>
+        </div>
+
+        <div class="about-hobbies-box about-hobbies-photography">
+          <img
+            class="bigger"
+            src="../../assets/images/about/photography/pic01.jpeg"
+          />
+          <img
+            class="smaller"
+            src="../../assets/images/about/photography/pic02.jpeg"
+            :style="
+              appEleScrollTop > aboutHobbiesScrollDistance + 1700
+                ? 'transform: translateY(' +
+                  -(30 - (appEleScrollTop - aboutHobbiesScrollDistance) / 10) +
+                  'px);'
+                : ''
+            "
+          />
+          <div
+            class="about-hobbies-title"
+            :class="
+              appEleScrollTop > aboutHobbiesScrollDistance + 1900
+                ? 'titleAnimation'
+                : ''
+            "
+          >
+            <span class="about-hobbies-txt">摄影</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import AboutSkill from "./components/about-skill.vue";
 const aboutHeaderEle = ref<HTMLElement>();
 const aboutMeEle = ref<HTMLElement>();
 let appEleScrollTop = ref<number>(0);
 let aboutMeTargetDistance = ref<number>(0);
+let aboutHobbiesScrollDistance = ref<number>(0);
+
+const getTargetDynamicDistance = (height: number): number => {
+  let baseNumber = 192;
+  return ((height / baseNumber) * window.innerWidth) / 10 - window.innerHeight;
+};
 
 const onScroll = () => {
   const appEle = document.getElementById("app-container") as HTMLElement;
-  let targetHeight = 1280;
-  let baseNumber = 192;
-  let targetDistance =
-    ((targetHeight / baseNumber) * window.innerWidth) / 10 - window.innerHeight;
+  const aboutMeTargetHeight = 1280;
+  const aboutHobbiesTargetHeight = 3600;
 
   appEleScrollTop.value = appEle.scrollTop;
-  aboutMeTargetDistance.value = targetDistance;
+  aboutMeTargetDistance.value = getTargetDynamicDistance(aboutMeTargetHeight);
+  aboutHobbiesScrollDistance.value = getTargetDynamicDistance(
+    aboutHobbiesTargetHeight
+  );
 };
 
 onMounted(() => {
@@ -82,7 +171,6 @@ onMounted(() => {
 @import "@/assets/styles/variable.scss";
 .about-container {
   width: 100%;
-  height: 2000px;
   // 公共样式
   .about-title {
     color: #3b3e4b;
@@ -104,7 +192,7 @@ onMounted(() => {
 
   .about-header {
     height: 680px;
-    background: url("@/assets/images/about/bg5.jpg") no-repeat center;
+    background: url("@/assets/images/about/bg.jpg") no-repeat center;
     background-size: cover;
     position: relative;
     &::before {
@@ -133,12 +221,12 @@ onMounted(() => {
         width: 250px;
         height: 250px;
         border-radius: 50%;
-        background: url("../../assets/images/about/my2.png") no-repeat center;
+        background: url("../../assets/images/about/my.png") no-repeat center;
         background-size: cover;
         margin-bottom: 60px;
+        box-shadow: 0 2px 16px 0px #b4b4b4;
       }
       .about-me-desc {
-        opacity: 0;
         .about-me-desc-txt {
           text-align: center;
           margin-bottom: 12px;
@@ -165,54 +253,176 @@ onMounted(() => {
     height: 520px;
     padding: 0 20%;
     box-sizing: border-box;
-    background: url("../../assets/images/about/bg11.jpg") no-repeat center;
-    background-size: cover;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: #fff;
-
-    &::before {
-      width: 100%;
-      height: 100%;
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba($color: #000000, $alpha: 0.55);
-    }
     .statistic-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       color: #fff;
-       position: relative;
-       z-index: 2;
+      position: relative;
+      z-index: 2;
       .statistic-icon {
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background-color: #fff;
+        background: linear-gradient(
+        to right bottom,
+        #fff,
+        #ededed 180px
+        );
         text-align: center;
         margin-bottom: 60px;
-       
         i {
           font-size: 52px;
           color: $mainColor;
         }
       }
-      .statistic-txt{
+      .statistic-txt {
         margin-bottom: 25px;
         color: #ccc;
-        span{
-          color: #fff;
+        span {
+          color: $mainColor;
           margin-right: 5px;
           font-size: 48px;
         }
       }
+    }
+  }
+
+  .about-skill {
+    padding: 100px 0;
+    height: 1100px;
+  }
+
+  .about-hobbies {
+    width: 100%;
+    padding: 100px 0;
+    .about-hobbies-content {
+      position: relative;
+
+      .about-hobbies-box {
+        position: relative;
+        margin-bottom: 600px;
+        img {
+          border-radius: 5px;
+          object-fit: cover;
+          position: relative;
+          box-shadow: 14px 15px 16px -7px #757575;
+        }
+        .bigger {
+          width: 1000px;
+          height: 700px;
+          position: relative;
+          z-index: 3;
+        }
+        .smaller {
+          width: 550px;
+          height: 380px;
+          position: relative;
+          z-index: 2;
+        }
+        .about-hobbies-title {
+          width: 250px;
+          position: absolute;
+          top: 50px;
+          z-index: 1;
+          .about-hobbies-txt {
+            display: inline-block;
+            font-size: 34px;
+            color: $mainTxtColor;
+            opacity: 0;
+          }
+          &::after {
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 1px;
+            content: "";
+            display: block;
+            background-color: $mainTxtColor;
+            transform: translateX(-100%);
+          }
+        }
+      }
+      
+      .about-hobbies-travel {
+        .bigger {
+          z-index: 2;
+          transform: rotate(-1deg);
+        }
+        .smaller {
+          z-index: 3;
+          left: -100px;
+          top: 200px;
+        }
+        .about-hobbies-title {
+          text-align: right;
+          left: 1000px;
+          top: 50px;
+        }
+      }
+
+      .about-hobbies-code {
+        .bigger {
+          top: 50px;
+          transform: rotate(3deg);
+          object-fit: cover;
+        }
+        .smaller {
+          left: 50px;
+          top: 100px;
+          transform: rotate(-8deg);
+        }
+        .about-hobbies-title {
+          right: 1100px;
+          top: 50px;
+          &::after {
+            transform: translateX(120%);
+          }
+        }
+      }
+
+      .about-hobbies-photography {
+        .bigger {
+          transform: rotate(-2deg);
+        }
+        .smaller {
+          width: 650px;
+          height: 550px;
+          left: -120px;
+          top: 50px;
+        }
+        .about-hobbies-title {
+          text-align: right;
+          left: 1000px;
+          top: 50px;
+        }
+      }
+    }
+  }
+}
+
+.titleAnimation {
+  .about-hobbies-txt {
+    animation: titleTxtAnimation 1s 0.9s;
+    animation-fill-mode: forwards;
+  }
+
+  &::after {
+    animation: titleLineAnimation 1.2s 0.1s;
+    animation-fill-mode: forwards;
+  }
+}
+.about-hobbies-code {
+  .titleAnimation {
+    &::after {
+      animation: titleLineAnimationToRight 1.2s 0.1s;
+      animation-fill-mode: forwards;
     }
   }
 }
