@@ -16,6 +16,7 @@ const components = [
  */
 export default function setupBaseComponents(app: App) {
     components.forEach(item => {
+        console.log('item', item)
         app.component(item.name, item)
     })
 }

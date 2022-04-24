@@ -13,6 +13,9 @@ declare module 'vue' {
     BaseHeader2: typeof import('./src/components/base-header2/index.vue')['default']
     BaseToolbar: typeof import('./src/components/base-toolbar/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     Test: typeof import('./src/components/test/index.vue')['default']
   }
 }

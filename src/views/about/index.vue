@@ -8,9 +8,7 @@
       <div
         class="about-me-content flex-center"
         :style="
-             'transform: translateY(' +
-              -(30 - appEleScrollTop / 15) +
-              'px);'
+          'transform: translateY(' + -(30 - appEleScrollTop / 15) + 'px);'
         "
       >
         <div class="about-me-pic"></div>
@@ -137,8 +135,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import AboutSkill from "./components/about-skill.vue";
+
 const aboutHeaderEle = ref<HTMLElement>();
 const aboutMeEle = ref<HTMLElement>();
 let appEleScrollTop = ref<number>(0);
@@ -165,6 +164,10 @@ const onScroll = () => {
 onMounted(() => {
   const appEle = document.getElementById("app-container") as HTMLElement;
   appEle.addEventListener("scroll", onScroll);
+});
+onBeforeUnmount(() => {
+  const appEle = document.getElementById("app-container") as HTMLElement;
+  appEle.removeEventListener("scroll", onScroll);
 });
 </script>
 <style lang="scss" scoped>
@@ -269,11 +272,7 @@ onMounted(() => {
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background: linear-gradient(
-        to right bottom,
-        #fff,
-        #ededed 180px
-        );
+        background: linear-gradient(to right bottom, #fff, #ededed 180px);
         text-align: center;
         margin-bottom: 60px;
         i {
@@ -349,7 +348,7 @@ onMounted(() => {
           }
         }
       }
-      
+
       .about-hobbies-travel {
         .bigger {
           z-index: 2;

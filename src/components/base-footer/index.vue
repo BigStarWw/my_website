@@ -4,7 +4,7 @@
     :class="isHomePage ? 'base-footer-float' : ''"
   >
     <div class="base-footer-contact flex-center">
-      <div class="contact-way">Github: BigStarWw</div>
+      <div class="contact-way">Github: @BigStarWw</div>
       <div class="contact-way">邮箱: 956880047@qq.com</div>
     </div>
     <div class="base-footer-copy">

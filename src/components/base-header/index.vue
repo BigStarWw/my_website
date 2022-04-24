@@ -9,7 +9,7 @@
         <ul>
           <li><router-link to="/home">首页</router-link></li>
           <li><router-link to="/about">关于我</router-link></li>
-          <li><router-link to="/">小插件demo</router-link></li>
+          <li><router-link to="/demo">小插件demo</router-link></li>
         </ul>
       </nav>
 
@@ -31,7 +31,7 @@
   </header>
 </template>
 <script lang="ts">
-import { defineComponent, ref, reactive, toRefs } from "vue";
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "BaseHeader",
   props: {},
@@ -52,6 +52,10 @@ export default defineComponent({
   mounted() {
     const appEle = document.getElementById("app-container") as HTMLElement;
     appEle.addEventListener("scroll", this.onScroll);
+  },
+  beforeUnmount() {
+    const appEle = document.getElementById("app-container") as HTMLElement;
+    appEle.removeEventListener("scroll", this.onScroll);
   },
   methods: {
     onScroll() {
