@@ -88,7 +88,7 @@ onMounted(() => {
   overflow: hidden;
   .demo-header {
     height: 280px;
-    background: url("@/assets/images/demo/bg03.jpg") no-repeat center;
+    background: url("@/assets/images/demo/bg.jpg") no-repeat center;
     background-size: cover;
     position: relative;
     .demo-header-txt {
