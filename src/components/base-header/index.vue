@@ -1,7 +1,7 @@
 <template>
   <header
     class="base-header-container"
-    :class="!isHomePage && appEleScrollTop > 10 ? 'base-header-float' : ''"
+    :class="!isHomePage && appEleScrollTop > 10 || isDemoReplPage ? 'base-header-float' : ''"
   >
     <div class="base-header-left"></div>
     <div class="base-header-right">
@@ -38,6 +38,7 @@ export default defineComponent({
   data() {
     return {
       isHomePage: true as boolean,
+      isDemoReplPage: false as boolean,
       appEleScrollTop: 0 as number,
       aboutMeTargetDistance: 0 as number,
     };
@@ -46,6 +47,7 @@ export default defineComponent({
     $route: {
       handler: function (route) {
         this.isHomePage = route.path === "/home";
+        this.isDemoReplPage = route.path === "/demo-repl"
       },
     },
   },

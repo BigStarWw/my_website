@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/node": "^17.0.23",
+    "@vue/repl": "^1.0.0",
     "amfe-flexible": "^2.2.1",
     "element-plus": "^2.1.8",
     "vue": "^3.2.25",
