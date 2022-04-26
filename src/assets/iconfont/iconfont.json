@@ -6,6 +6,27 @@
   "description": "my_website",
   "glyphs": [
     {
+      "icon_id": "25015661",
+      "name": "花键1-01",
+      "font_class": "huajian1-01",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "25017136",
+      "name": "减-01",
+      "font_class": "jian-01",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "25017137",
+      "name": "加-01",
+      "font_class": "jia-01",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
       "icon_id": "930033",
       "name": "绑定邮箱",
       "font_class": "bangdingyouxiang",

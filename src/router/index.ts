@@ -21,7 +21,13 @@ const routes = [
         path: '/demo-repl',
         name: 'DemoRepl',
         component: () => import('../views/demo/repl.vue')
+    },
+    {
+        path: '/demo-scroll',
+        name: 'scroll',
+        component: () => import('../views/demo/scroll.vue')
     }
+    
     
 ]
 

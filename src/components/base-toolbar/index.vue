@@ -12,7 +12,7 @@ export default defineComponent({
   props: {},
 
   setup(props, context) {
-    let isShow = ref<boolean>(false);
+    let isShow = ref(false);
   
     // 滚动到顶部
     const onScrollToTop = () => {

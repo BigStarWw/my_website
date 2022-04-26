@@ -7,7 +7,10 @@
 import { ref, reactive, onMounted } from "vue";
 import { Repl, ReplStore } from "@vue/repl";
 import "@vue/repl/style.css";
-import demo from '@/demo/01-demo.js'
+// import demo from '@/demo/01-demo.js'
+import demo from '@/demo/03-demo.js'
+
+
 
 let welcomeCode = demo;
 const defaultMainFile = "App1.vue";
