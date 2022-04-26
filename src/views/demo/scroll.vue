@@ -10,19 +10,9 @@
           <div class="option-box">
             <div class="item" @click="onZoomIn">
               <div class="label">放大</div>
-              <!-- <div class="key">
-                <span><i class="iconfont icon-huajian1-01" /></span>
-                <span> + </span>
-                <span><i class="iconfont icon-jia-01" /></span>
-              </div> -->
             </div>
             <div class="item" @click="onZoomOut">
               <div class="label">缩小</div>
-              <!-- <div class="key">
-                <span><i class="iconfont icon-huajian1-01" /></span>
-                <span> + </span>
-                <span><i class="iconfont icon-jian-01" /></span>
-              </div> -->
             </div>
           </div>
           <div class="option-box">
@@ -231,15 +221,7 @@ export default defineComponent({
       this.ration = ration;
 
       dom.style.transform = `scale(${this.ration / 100})`;
-    },
-    // onKeyZoom(e: KeyboardEvent) {
-    //   if ((e.ctrlKey || e.metaKey) && e.keyCode === 187) {
-    //     this.onZoomIn();
-    //   } else if ((e.ctrlKey || e.metaKey) && e.keyCode === 189) {
-    //     this.onZoomOut();
-    //   }
-    //   e.preventDefault();
-    // },
+    }
   },
 });
 </script>
