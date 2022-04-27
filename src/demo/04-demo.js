@@ -1,11 +1,9 @@
-<template>
+const demo = `<template>
   <div class="contraction-container">
     <div class="contraction-box">
       <i class="iconfont icon-jian-01" @click="onZoomOut" />
       <el-popover trigger="hover">
-        <template #reference>
-          <span>{{ ration }}%</span></template
-        >
+        <template #reference><span>{{ ration }}%</span></template>
         <div class="contraction-options-box">
           <div class="option-box">
             <div class="item" @click="onZoomIn">
@@ -47,11 +45,12 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-// import * as echarts from "echarts";
-// import * as echarts from "https://cdn.bootcdn.net/ajax/libs/echarts/5.3.2/echarts.common.min.js";
-
+import * as echarts from "echarts"
+import { ElPopover } from 'element-plus'
+import { loadElementPlusStyle, loadIconStyle } from '/src/utils/index.js'
 
 export default defineComponent({
+  components: { ElPopover },
   data() {
     return {
       // 图表放大缩小
@@ -61,15 +60,16 @@ export default defineComponent({
       currentTop: 0,
       temporaryCurTop: 0,
       temporaryCurLeft: 0,
-      contractionRation: [800, 400, 200, 150, 100, 50, 25],
+      contractionRation: [800, 400, 200, 150, 100, 50, 25]
     };
   },
   mounted() {
+    loadElementPlusStyle();
+    loadIconStyle();
     this.renderEchart();
   },
   methods: {
     renderEchart() {
-       console.log('echarts', echarts)
       var chartDom = document.getElementById("main-chart") as HTMLElement;
       var myChart = echarts.init(chartDom);
       var option;
@@ -202,7 +202,7 @@ export default defineComponent({
         return;
       }
 
-      this.ration = this.ration * 2;
+      this.ration = this.ration * 2 > 800 ? 800 : this.ration * 2;
       this.onZoom(this.ration);
     },
     /**
@@ -223,20 +223,20 @@ export default defineComponent({
       let dom = this.$refs["main-chart"] as HTMLElement;
       this.ration = ration;
 
-      dom.style.transform = `scale(${this.ration / 100})`;
+      dom.style.transform = 'scale('+ this.ration / 100 + ')';
     },
   },
 });
-</script>
+<\/script>
 <style>
+
+
 .contraction-container {
-  background-color: #ddd;
-  margin-top: 60px;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 100px);
   width: 100%;
 }
 .contraction-box {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 134px;
   height: 32px;
   padding: 1px 16px;
@@ -248,6 +248,11 @@ export default defineComponent({
   justify-content: space-between;
   font-size: 0.12rem;
   color: #464c5b;
+}
+.contraction-box > i, 
+.contraction-box > span
+{
+  cursor: pointer;
 }
 .contraction-options-box {
   padding: 5px 0;
@@ -367,3 +372,7 @@ export default defineComponent({
   align-items: center;
 }
 </style>
+
+
+`;
+export default demo;
