@@ -75,6 +75,7 @@ let lists: listItem[] = reactive([
   },
 ]);
 const loading = ref(true);
+
 onMounted(() => {
   setTimeout(() => {
     loading.value = false;

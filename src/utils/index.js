@@ -7,7 +7,7 @@ export const loadElementPlusStyle = () => {
     document.getElementsByTagName("head")[0].appendChild(link)
 }
 
-export const loadIconStyle = () => {
+export const loadIconFontStyle = () => {
     var url = "https://at.alicdn.com/t/font_3309563_fr30llblzuv.css"
     var link=document.createElement("link"); 
     link.setAttribute("rel", "stylesheet"); 
