@@ -47,7 +47,7 @@ const demo = `<template>
 import { defineComponent } from "vue";
 import * as echarts from "echarts"
 import { ElPopover } from 'element-plus'
-import { loadElementPlusStyle, loadIconFontStyle } from '/src/utils/index.js'
+import { loadElementPlusStyle, loadIconFontStyle } from '/src/utils/index.ts'
 
 export default defineComponent({
   components: { ElPopover },
