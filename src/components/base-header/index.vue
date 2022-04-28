@@ -1,7 +1,11 @@
 <template>
   <header
     class="base-header-container"
-    :class="!isHomePage && appEleScrollTop > 10 || isDemoReplPage ? 'base-header-float' : ''"
+    :class="
+      (!isHomePage && appEleScrollTop > 10) || isDemoReplPage
+        ? 'base-header-float'
+        : ''
+    "
   >
     <div class="base-header-left"></div>
     <div class="base-header-right">
@@ -34,20 +38,20 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "BaseHeader",
-  props: {},
   data() {
     return {
-      isHomePage: true as boolean,
-      isDemoReplPage: false as boolean,
-      appEleScrollTop: 0 as number,
-      aboutMeTargetDistance: 0 as number,
+      isHomePage: true,
+      isDemoReplPage: false,
+      isDark: false,
+      appEleScrollTop: 0,
+      aboutMeTargetDistance: 0,
     };
   },
   watch: {
     $route: {
       handler: function (route) {
         this.isHomePage = route.path === "/home";
-        this.isDemoReplPage = route.path === "/demo-repl"
+        this.isDemoReplPage = route.path === "/demo-repl";
       },
     },
   },
