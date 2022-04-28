@@ -2,6 +2,9 @@
   <div class="demo-container">
     <div class="demo-header flex-center">
       <p class="demo-header-txt">Demo</p>
+      <p class="demo-header-sub-txt">
+        这个版块主要是展示一些学习、开发过程中总结的“花里胡哨”的demo； 主要是记录和总结，能给开发的朋友们提供一些思路也是极好滴。
+      </p>
     </div>
     <div class="demo-content">
       <el-skeleton
@@ -11,10 +14,16 @@
         v-for="(item, index) in lists"
       >
         <template #template>
-          <el-skeleton-item variant="image" style="width: 100%; height: 1.145rem" />
-          <div style="padding: 7px;">
+          <el-skeleton-item
+            variant="image"
+            style="width: 100%; height: 1.145rem"
+          />
+          <div style="padding: 7px">
             <el-skeleton-item variant="h3" style="width: 50%" />
-            <el-skeleton-item variant="p" style="width: 100%; margin: 7px 0 .07rem 0;" />
+            <el-skeleton-item
+              variant="p"
+              style="width: 100%; margin: 7px 0 0.07rem 0"
+            />
             <el-skeleton-item variant="p" style="width: 50%" />
           </div>
         </template>
@@ -98,6 +107,11 @@ onMounted(() => {
       font-style: italic;
       font-weight: bold;
     }
+    .demo-header-sub-txt{
+      color: #fff;
+      font-size: 18px;
+      opacity: .8;
+    }
   }
   .demo-content {
     width: 85%;
@@ -112,14 +126,14 @@ onMounted(() => {
       background: #fff;
       overflow: hidden;
       border-radius: 5px;
-       box-shadow: 0 2px 16px 0px #cecece;
+      box-shadow: 0 2px 16px 0px #cecece;
       &:nth-child(3n) {
         margin-right: 0;
       }
-      &:hover{
+      &:hover {
         cursor: pointer;
-         transform: translateY(-3px);
-         transition: all .4s;
+        transform: translateY(-3px);
+        transition: all 0.4s;
       }
       .demo-item-img {
         width: 100%;
