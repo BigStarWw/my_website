@@ -12,8 +12,8 @@
 import { ref, reactive, onMounted } from "vue";
 import { Repl, ReplStore, compileFile ,File} from "@vue/repl";
 import "@vue/repl/style.css";
-// import demo from '@/demo/01-demo.js'
-import demo from "@/demo/05-demo.js";
+import demo from '@/demo/01-demo.js'
+// import demo from "@/demo/05-demo.js";
 
 const store = new ReplStore();
 let demoCode = demo;

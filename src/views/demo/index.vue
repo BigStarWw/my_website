@@ -3,7 +3,8 @@
     <div class="demo-header flex-center">
       <p class="demo-header-txt">Demo</p>
       <p class="demo-header-sub-txt">
-        这个版块主要是展示一些学习、开发过程中总结的“花里胡哨”的demo； 主要是记录和总结，能给开发的朋友们提供一些思路也是极好滴。
+        这个版块主要是展示一些学习、开发过程中总结的“花里胡哨”的demo；
+        主要是记录和总结，能给开发的朋友们提供一些思路也是极好滴。
       </p>
     </div>
     <div class="demo-content">
@@ -36,6 +37,11 @@
             <div class="demo-item-content">
               <h3 class="demo-item-title">{{ item.title }}</h3>
               <p class="demo-item-desc">{{ item.desc }}</p>
+              <p class="demo-item-tag">
+                <el-tag v-for="subItem in item.category">{{
+                  subItem
+                }}</el-tag>
+              </p>
               <p class="demo-item-time">{{ item.time }}</p>
             </div>
           </div>
@@ -46,50 +52,26 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-interface listItem {
-  title: string;
-  desc: string;
-  url: string;
-  time: string;
-  category: string[];
-}
-let lists: listItem[] = reactive([
-  {
-    title: "测试标题1",
-    desc: "这是一个关于爱心css样式的式的式的,一个demo",
-    url: "",
-    time: "2022-04-18",
-    category: ["css", "js"],
-  },
-  {
-    title: "测试标题1",
-    desc: "这是一个关于爱心css样式的式的式的式的式的式的式的式的式的式的式的式的式的式的式的式的式的式的式的,一个demo",
-    url: "",
-    time: "2022-04-18",
-    category: ["css", "js"],
-  },
-  {
-    title: "测试标题1",
-    desc: "这是一个关于爱心css样式的式的式的,一个demo",
-    url: "",
-    time: "2022-04-18",
-    category: ["css", "js"],
-  },
-  {
-    title: "测试标题1",
-    desc: "这是一个关于爱心css样式的式的式的,一个demo",
-    url: "",
-    time: "2022-04-18",
-    category: ["css", "js"],
-  },
-]);
+import { getDemoLists } from "../../api/demo.ts";
+
 const loading = ref(true);
+let lists = ref([]);
 
 onMounted(() => {
-  setTimeout(() => {
-    loading.value = false;
-  }, 2000);
+  getLists();
 });
+
+const getLists = () => {
+  getDemoLists().then((res) => {
+    const { code, data } = res;
+    if (code === 200 || code === "200") {
+      lists.value = data;
+    }
+    setTimeout(() => {
+      loading.value = false;
+    }, 500);
+  });
+};
 </script>
 <style lang="scss" scoped>
 @import "@/assets/styles/variable.scss";
@@ -107,10 +89,10 @@ onMounted(() => {
       font-style: italic;
       font-weight: bold;
     }
-    .demo-header-sub-txt{
+    .demo-header-sub-txt {
       color: #fff;
       font-size: 18px;
-      opacity: .8;
+      opacity: 0.8;
     }
   }
   .demo-content {
@@ -122,7 +104,7 @@ onMounted(() => {
     .demo-item {
       margin: 0 2.5% 50px 0;
       width: 31%;
-      height: 380px;
+      height: 400px;
       background: #fff;
       overflow: hidden;
       border-radius: 5px;
@@ -155,7 +137,20 @@ onMounted(() => {
           -webkit-line-clamp: 2;
           overflow: hidden;
         }
+        .demo-item-tag {
+          height: 30px;
+          margin-bottom: 3px;
+          span {
+            margin-right: 7px;
+            border-style: dashed;
+            background: rgba(211, 129, 189, 0.2)!important;
+            color: rgba(211, 129, 189, 1)!important;
+            border-color: rgba(211, 129, 189, .5)!important;
+
+          }
+        }
         .demo-item-time {
+          margin-left: 3px;
           color: $mainsSubTxtColor;
         }
       }
