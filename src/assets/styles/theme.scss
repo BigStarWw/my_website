@@ -1,4 +1,9 @@
-.dark-theme{
-    --color: #000;
-    --text-color: #000;
+.dark{
+    --textColor: #fff;
+    --textGrayColor: #dbdbdb;
+    --bgColor: #191919;
+    --aboutSkillOpacity: .15;
+    --boxShadow: 14px 15px 16px -7px rgba(255, 255, 255, .1);
+    --aboutHeaderColor: #5c5e6e;
+    --footerBgColor: #36393f;
 }

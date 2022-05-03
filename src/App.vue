@@ -16,10 +16,9 @@
 @import "@/assets/styles/common.scss";
 .app-container {
   height: 100%;
-overflow-y: auto;
- 
+  overflow-y: auto;
+  background-color: var(--bgColor, #fff);
 }
 .main-container {
-   // height: 100%;
 }
 </style>

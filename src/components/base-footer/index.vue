@@ -47,7 +47,7 @@ export default defineComponent({
 @import "@/assets/styles/variable.scss";
 .base-footer-container {
   width: 100%;
-  background-color: $mainTxtColor;
+  background-color:  var(--footerBgColor, $mainTxtColor);
   .base-footer-content {
     height: 120px;
     width: 100%;

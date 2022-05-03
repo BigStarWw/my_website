@@ -176,7 +176,7 @@ onBeforeUnmount(() => {
   width: 100%;
   // 公共样式
   .about-title {
-    color: #3b3e4b;
+    color: var(--textColor, #3b3e4b);
     font-size: 40px;
     margin-bottom: 80px;
     position: relative;
@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
       left: 0;
       right: 0;
       opacity: 0.1;
-      background: linear-gradient(to right bottom, #323232, #030d71 70px);
+      background: linear-gradient(to right bottom, #323232, var(--aboutHeaderColor, #030d71) 70px);
     }
     .about-header-txt {
       color: #fff;
@@ -227,23 +227,22 @@ onBeforeUnmount(() => {
         background: url("../../assets/images/about/my.png") no-repeat center;
         background-size: cover;
         margin-bottom: 60px;
-        box-shadow: 0 2px 16px 0px #b4b4b4;
+        box-shadow: var(--boxShadow, 0 2px 16px 0px #b4b4b4);
       }
       .about-me-desc {
         .about-me-desc-txt {
           text-align: center;
           margin-bottom: 12px;
           font-size: 20px;
-          color: #666;
+          color: var(--textColor, #666);
           font-family: system-ui;
-
           span {
             font-size: 20px;
-            color: #666;
+            color: var(--textColor, #666);
           }
           &:first-child {
             font-size: 22px;
-            color: $mainTxtColor;
+            color: var(--textColor, $mainTxtColor);
             margin-bottom: 40px;
           }
         }
@@ -310,7 +309,7 @@ onBeforeUnmount(() => {
           border-radius: 5px;
           object-fit: cover;
           position: relative;
-          box-shadow: 14px 15px 16px -7px #757575;
+          box-shadow: var(--boxShadow, 4px 5px 6px 0px #757575);
         }
         .bigger {
           width: 1000px;
@@ -332,7 +331,7 @@ onBeforeUnmount(() => {
           .about-hobbies-txt {
             display: inline-block;
             font-size: 34px;
-            color: $mainTxtColor;
+            color: var(--textGrayColor, $mainTxtColor);
             opacity: 0;
           }
           &::after {

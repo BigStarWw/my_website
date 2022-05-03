@@ -53,8 +53,8 @@ const txtArr = reactive<string[]>([
     text-align: right;
     font-size: 160px;
     font-weight: bold;
-    color: #dadada;
-    opacity: 0.5;
+    color: var(--textColor, #dadada);
+    opacity: var(--aboutSkillOpacity, .5);
   }
   .about-skill-content {
     box-sizing: border-box;

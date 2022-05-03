@@ -25,7 +25,7 @@
               variant="p"
               style="width: 100%; margin: 7px 0 0.07rem 0"
             />
-             <el-skeleton-item
+            <el-skeleton-item
               variant="p"
               style="width: 100%; margin: 7px 0 0.07rem 0"
             />
@@ -34,17 +34,12 @@
         </template>
         <template #default>
           <div class="demo-item" @click="goDetail(item.fileName)">
-            <img
-              class="demo-item-img"
-              :src="item.imgUrl || demoDefault"
-            />
+            <img class="demo-item-img" :src="item.imgUrl || demoDefault" />
             <div class="demo-item-content">
               <h3 class="demo-item-title">{{ item.title }}</h3>
               <p class="demo-item-desc">{{ item.desc }}</p>
               <p class="demo-item-tag">
-                <el-tag v-for="subItem in item.category">{{
-                  subItem
-                }}</el-tag>
+                <el-tag v-for="subItem in item.category">{{ subItem }}</el-tag>
               </p>
               <p class="demo-item-time">{{ item.time }}</p>
             </div>
@@ -56,31 +51,31 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 import { getDemoLists } from "../../api/demo.ts";
 
 interface listsItem {
-  _id: string,
-  title: string,
-  desc: string,
-  imgUrl: string,
-  time: string,
-  category: string[],
-  fileName: string
+  _id: string;
+  title: string;
+  desc: string;
+  imgUrl: string;
+  time: string;
+  category: string[];
+  fileName: string;
 }
-const router = useRouter()
-const demoDefault = ref("/src/assets/images/demo/demo-default.png")
+const router = useRouter();
+const demoDefault = ref("/src/assets/images/demo/demo-default.png");
 const loading = ref(true);
 const state = reactive({
-  lists: [] as listsItem[]
-})
+  lists: [] as listsItem[],
+});
 
 onMounted(() => {
   getLists();
 });
 
 const getLists = () => {
-  getDemoLists().then(( res: any ) => {
+  getDemoLists().then((res: any) => {
     const { code, data } = res;
     if (code === 200 || code === "200") {
       state.lists = data;
@@ -93,19 +88,19 @@ const getLists = () => {
 
 const goDetail = (fileName: string) => {
   const pageHref = router.resolve({
-    path: '/demo-repl',
+    path: "/demo-repl",
     query: {
-      fileName
-    }
-  })
+      fileName,
+    },
+  });
 
-   window.open(pageHref.href, '_blank')
+  window.open(pageHref.href, "_blank");
 };
 </script>
 <style lang="scss" scoped>
 @import "@/assets/styles/variable.scss";
 .demo-container {
-  background: #f0f4f3;
+  background: var(--bgColor, #f0f4f3);
   overflow: hidden;
   .demo-header {
     height: 280px;
@@ -138,7 +133,7 @@ const goDetail = (fileName: string) => {
       background: #fff;
       overflow: hidden;
       border-radius: 5px;
-      box-shadow: 0 2px 16px 0px #cecece;
+      box-shadow: var(--boxShadow, 0 2px 16px 0px #cecece);
       box-sizing: border-box;
       &:nth-child(3n) {
         margin-right: 0;
@@ -174,10 +169,9 @@ const goDetail = (fileName: string) => {
           span {
             margin-right: 7px;
             border-style: dashed;
-            background: rgba(211, 129, 189, 0.2)!important;
-            color: rgba(211, 129, 189, 1)!important;
-            border-color: rgba(211, 129, 189, .5)!important;
-
+            background: rgba(211, 129, 189, 0.2) !important;
+            color: rgba(211, 129, 189, 1) !important;
+            border-color: rgba(211, 129, 189, 0.5) !important;
           }
         }
         .demo-item-time {

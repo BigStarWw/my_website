@@ -19,16 +19,7 @@
 
       <div class="switch-theme-box">
         <!-- <i class="iconfont icon-yejian dark-icon"></i> -->
-        <i
-          v-show="isDark"
-          class="iconfont icon-yejian2 dark-icon"
-          @click="() => (isDark = !isDark)"
-        ></i>
-        <i
-          v-show="!isDark"
-          class="iconfont icon-A"
-          @click="() => (isDark = !isDark)"
-        ></i>
+        <i class="iconfont" :class="icon" @click="switchTheme"></i>
         <!-- <i class="iconfont icon-baitian"></i> -->
       </div>
     </div>
@@ -45,6 +36,7 @@ export default defineComponent({
       isDark: false,
       appEleScrollTop: 0,
       aboutMeTargetDistance: 0,
+      bodyEle: {} as HTMLBodyElement
     };
   },
   watch: {
@@ -52,22 +44,42 @@ export default defineComponent({
       handler: function (route) {
         this.isHomePage = route.path === "/home";
         this.isDemoReplPage = route.path === "/demo-repl";
+
+        this.initTheme()
       },
+    },
+  },
+  computed: {
+    icon():string {
+      return this.isDark ? "icon-yejian2 dark-icon" : "icon-A";
     },
   },
   mounted() {
     const appEle = document.getElementById("app-container") as HTMLElement;
     appEle.addEventListener("scroll", this.onScroll);
+    this.bodyEle = document.getElementsByTagName("body")[0]
+    this.initTheme()
   },
   beforeUnmount() {
     const appEle = document.getElementById("app-container") as HTMLElement;
     appEle.removeEventListener("scroll", this.onScroll);
   },
   methods: {
+    initTheme() {
+      this.isDark = localStorage.getItem("theme") === 'darkTheme' || false
+      this.isDark ? this.bodyEle.classList.add('dark') : this.bodyEle.classList.remove('dark')
+    },
     onScroll() {
       const appEle = document.getElementById("app-container") as HTMLElement;
       this.appEleScrollTop = appEle.scrollTop;
     },
+    switchTheme() {
+      this.isDark = !this.isDark
+      // 切换主题
+      this.bodyEle.classList.toggle('dark')
+      // 并且保存于localstorage中
+      localStorage.setItem("theme", this.isDark ? 'darkTheme' : '')
+    }
   },
 });
 </script>
@@ -111,7 +123,7 @@ export default defineComponent({
           width: 0;
           height: 1px;
           background-color: #fff;
-          transition: all .2s;
+          transition: all 0.2s;
         }
         &:hover {
           &::before {
@@ -143,20 +155,20 @@ export default defineComponent({
 }
 
 .base-header-float {
-  background: #fff;
+  background: var(--bgColor, #fff);
   box-shadow: 0 -6px 11px 0px $mainTxtColor;
-  color: $mainTxtColor;
+  color: var(--textColor, $mainTxtColor);
   .base-header-right {
     .nav {
       li {
         a {
-          color: $mainTxtColor;
+          color: var(--textColor, $mainTxtColor);
         }
       }
     }
     .switch-theme-box {
       i {
-        color: $mainTxtColor;
+        color: var(--textColor, $mainTxtColor);
       }
     }
   }
