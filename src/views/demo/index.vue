@@ -12,7 +12,7 @@
         style="width: 31%; height: 1.97rem"
         :loading="loading"
         animated
-        v-for="(item, index) in lists"
+        v-for="(item, index) in state.lists"
       >
         <template #template>
           <el-skeleton-item
@@ -25,14 +25,18 @@
               variant="p"
               style="width: 100%; margin: 7px 0 0.07rem 0"
             />
+             <el-skeleton-item
+              variant="p"
+              style="width: 100%; margin: 7px 0 0.07rem 0"
+            />
             <el-skeleton-item variant="p" style="width: 50%" />
           </div>
         </template>
         <template #default>
-          <div class="demo-item">
+          <div class="demo-item" @click="goDetail(item.fileName)">
             <img
               class="demo-item-img"
-              src="../../assets/images/about/travel/travel01.jpeg"
+              :src="item.imgUrl || demoDefault"
             />
             <div class="demo-item-content">
               <h3 class="demo-item-title">{{ item.title }}</h3>
@@ -52,25 +56,50 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
+import { useRouter } from 'vue-router'
 import { getDemoLists } from "../../api/demo.ts";
 
+interface listsItem {
+  _id: string,
+  title: string,
+  desc: string,
+  imgUrl: string,
+  time: string,
+  category: string[],
+  fileName: string
+}
+const router = useRouter()
+const demoDefault = ref("/src/assets/images/demo/demo-default.png")
 const loading = ref(true);
-let lists = ref([]);
+const state = reactive({
+  lists: [] as listsItem[]
+})
 
 onMounted(() => {
   getLists();
 });
 
 const getLists = () => {
-  getDemoLists().then((res) => {
+  getDemoLists().then(( res: any ) => {
     const { code, data } = res;
     if (code === 200 || code === "200") {
-      lists.value = data;
+      state.lists = data;
     }
     setTimeout(() => {
       loading.value = false;
     }, 500);
   });
+};
+
+const goDetail = (fileName: string) => {
+  const pageHref = router.resolve({
+    path: '/demo-repl',
+    query: {
+      fileName
+    }
+  })
+
+   window.open(pageHref.href, '_blank')
 };
 </script>
 <style lang="scss" scoped>
@@ -102,6 +131,7 @@ const getLists = () => {
     display: flex;
     flex-wrap: wrap;
     .demo-item {
+      padding: 5px;
       margin: 0 2.5% 50px 0;
       width: 31%;
       height: 400px;
@@ -109,6 +139,7 @@ const getLists = () => {
       overflow: hidden;
       border-radius: 5px;
       box-shadow: 0 2px 16px 0px #cecece;
+      box-sizing: border-box;
       &:nth-child(3n) {
         margin-right: 0;
       }
@@ -130,7 +161,7 @@ const getLists = () => {
         }
         .demo-item-desc {
           color: $mainsSubTxtColor;
-          margin: 7px 0 15px 0;
+          margin: 7px 0;
           height: 48px;
           display: -webkit-box;
           -webkit-box-orient: vertical;

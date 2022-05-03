@@ -22,7 +22,7 @@ export default defineComponent({
           appEle.scrollTop = 0;
           clearInterval(timer);
         }
-        appEle.scrollTop -= 20;
+        appEle.scrollTop -= 40;
       }, 10);
     };
 
