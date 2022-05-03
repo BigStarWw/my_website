@@ -162,13 +162,13 @@ export default defineComponent({
     .nav {
       li {
         a {
-          color: var(--textColor, $mainTxtColor);
+          color: var(--textPurplePinkColor, $mainTxtColor);
         }
       }
     }
     .switch-theme-box {
       i {
-        color: var(--textColor, $mainTxtColor);
+        color: var(--textPurplePinkColor, $mainTxtColor);
       }
     }
   }
