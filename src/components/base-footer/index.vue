@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="base-footer-contact flex-center">
-        <div class="contact-way">Github: @BigStarWw</div>
+        <div class="contact-way"><a href="https://github.com/BigStarWw/my_website/tree/dev">Github: @BigStarWw</a></div>
         <div class="contact-way">邮箱: 956880047@qq.com</div>
       </div>
     </div>
@@ -77,6 +77,10 @@ export default defineComponent({
       .contact-way {
         margin-right: 10px;
         color: #fff;
+        a{
+          text-decoration: none;
+          color: #fff;
+        }
       }
     }
   }

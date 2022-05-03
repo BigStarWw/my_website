@@ -100,13 +100,30 @@ export default defineComponent({
         line-height: 20px;
         box-sizing: border-box;
         cursor: pointer;
-
+        position: relative;
+        &::before,
+        &::after {
+          display: block;
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -3px;
+          width: 0;
+          height: 1px;
+          background-color: #fff;
+          transition: all .2s;
+        }
         &:hover {
-          color: #fff;
-          border-bottom: solid 2px #fff;
-          transition: border 0.2s;
+          &::before {
+            left: 0;
+            width: 50%;
+          }
+          &::after {
+            width: 50%;
+          }
         }
         a {
+          text-decoration: none;
           color: #fff;
           font-weight: bold;
           font-size: 18px;
