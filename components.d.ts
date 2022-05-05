@@ -7,6 +7,7 @@ declare module 'vue' {
     BaseFooter: typeof import('./src/components/base-footer/index.vue')['default']
     BaseHeader: typeof import('./src/components/base-header/index.vue')['default']
     BaseToolbar: typeof import('./src/components/base-toolbar/index.vue')['default']
+    ElImage: typeof import('element-plus/es')['ElImage']
     ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     ElTag: typeof import('element-plus/es')['ElTag']

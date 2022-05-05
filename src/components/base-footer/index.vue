@@ -5,12 +5,16 @@
   >
     <div class="base-footer-content" v-show="!isHomePage">
       <div class="base-footer-links">
-        <p>特别感谢以下网站提供的免费素材：</p>
+        <p>特别感谢以下才华横溢的创作者以及网站提供的免费素材和物料：</p>
         <div>
-          <a href="https://www.pexels.com/zh-cn/">pexels</a>
+          <a href="https://www.pexels.com/zh-cn/">Pexels</a>
           <a href="https://storyset.com/online"
             >Online illustrations by Storyset</a
           >
+          <a href="https://vuejs.org/">Vue</a>
+          <a href="https://element-plus.org/zh-CN/">Element Plus</a>
+          <a href="https://koajs.com/">koa</a>
+          <a href="https://www.mongodb.com/">MongoDB</a>
         </div>
       </div>
       <div class="base-footer-contact flex-center">

@@ -51,7 +51,7 @@
       <h4 class="about-title">兴趣爱好</h4>
       <div class="about-hobbies-content">
         <div class="about-hobbies-box about-hobbies-travel">
-          <img
+           <img
             class="bigger"
             src="../../assets/images/about/travel/travel01.jpeg"
           />
@@ -144,6 +144,15 @@ let appEleScrollTop = ref<number>(0);
 let aboutMeTargetDistance = ref<number>(0);
 let aboutHobbiesScrollDistance = ref<number>(0);
 
+onMounted(() => {
+  const appEle = document.getElementById("app-container") as HTMLElement;
+  appEle.addEventListener("scroll", onScroll);
+});
+onBeforeUnmount(() => {
+  const appEle = document.getElementById("app-container") as HTMLElement;
+  appEle.removeEventListener("scroll", onScroll);
+});
+
 const getTargetDynamicDistance = (height: number): number => {
   let baseNumber = 192;
   return ((height / baseNumber) * window.innerWidth) / 10 - window.innerHeight;
@@ -161,14 +170,7 @@ const onScroll = () => {
   );
 };
 
-onMounted(() => {
-  const appEle = document.getElementById("app-container") as HTMLElement;
-  appEle.addEventListener("scroll", onScroll);
-});
-onBeforeUnmount(() => {
-  const appEle = document.getElementById("app-container") as HTMLElement;
-  appEle.removeEventListener("scroll", onScroll);
-});
+
 </script>
 <style lang="scss" scoped>
 @import "@/assets/styles/variable.scss";
@@ -224,7 +226,7 @@ onBeforeUnmount(() => {
         width: 250px;
         height: 250px;
         border-radius: 50%;
-        background: url("../../assets/images/about/my.png") no-repeat center;
+        background: url("../../assets/images/about/my.jpeg") no-repeat center;
         background-size: cover;
         margin-bottom: 60px;
         box-shadow: var(--boxShadow, 0 2px 16px 0px #b4b4b4);

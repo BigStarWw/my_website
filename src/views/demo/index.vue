@@ -34,7 +34,13 @@
         </template>
         <template #default>
           <div class="demo-item" @click="goDetail(item.fileName)">
-            <img class="demo-item-img" :src="item.imgUrl || demoDefault" />
+            <!-- <img class="demo-item-img" :src="item.imgUrl || demoDefault" /> -->
+            <el-image
+              class="demo-item-img"
+              :key="item.imgUrl || demoDefault"
+              :src="item.imgUrl || demoDefault"
+              lazy
+            />
             <div class="demo-item-content">
               <h3 class="demo-item-title">{{ item.title }}</h3>
               <p class="demo-item-desc">{{ item.desc }}</p>
@@ -143,10 +149,12 @@ const goDetail = (fileName: string) => {
         transform: translateY(-3px);
         transition: all 0.4s;
       }
-      .demo-item-img {
+      ::v-deep .demo-item-img {
         width: 100%;
         height: 220px;
-        object-fit: cover;
+        img {
+          object-fit: cover;
+        }
       }
       .demo-item-content {
         padding: 7px;
