@@ -10,7 +10,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { Repl, ReplStore, compileFile } from "@vue/repl";
+import { Repl, ReplStore } from "@vue/repl";
 import { useRoute } from "vue-router";
 import "@vue/repl/style.css";
 import utils from "./utils";
