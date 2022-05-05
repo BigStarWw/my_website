@@ -1,8 +1,8 @@
 <template>
   <div class="about-skill-container">
     <div class="about-skill-bg-txt" style="right: -5%; top: 5%">web</div>
-    <div class="about-skill-bg-txt" style="right: -5%; top: 25%">skill</div>
-    <div class="about-skill-bg-txt" style="right: -5%; top: 45%">front-end</div>
+    <div class="about-skill-bg-txt" style="right: -5%; top: 25%">skills</div>
+    <div class="about-skill-bg-txt" style="right: -5%; top: 45%">professional</div>
     <div class="about-skill-content">
       <p
         class="about-skill-item flex-center"
@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
+import { reactive } from "vue";
 const txtArr = reactive<string[]>([
   "HTML5",
   "CSS3",
@@ -36,9 +36,11 @@ const txtArr = reactive<string[]>([
   "Typescript",
   "Git",
   "Node",
+  "koa",
+  // "Express",
+  "MongoDB",
   "Nginx",
-  "Express",
-  "Epg",
+  // "Epg"
 ]);
 </script>
 <style lang="scss" scoped>

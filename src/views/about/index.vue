@@ -34,7 +34,7 @@
         <div class="statistic-icon flex-center">
           <i class="iconfont icon-xiangmu1"></i>
         </div>
-        <p class="statistic-txt"><span>50+</span>个参与项目</p>
+        <p class="statistic-txt"><span>30+</span>个参与项目</p>
       </div>
       <div class="statistic-box flex-center">
         <div class="statistic-icon flex-center">
