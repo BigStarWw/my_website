@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { getDemoLists } from "../../api/demo.ts";
+import { getDemoLists } from "../../api/demo";
 
 interface listsItem {
   _id: string;

@@ -1,3 +1,3 @@
-import { methodPost, methodGet } from "@/api/index";
+import { methodGet } from "../api/index";
 
-export const getDemoLists = (params) => methodGet('/demo/getLists', params); // 需量分析-表格数据
+export const getDemoLists = (params?: any) => methodGet('/demo/getLists', params); // 需量分析-表格数据

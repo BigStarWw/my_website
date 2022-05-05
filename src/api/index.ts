@@ -15,7 +15,7 @@ switch (process.env.NODE_ENV) {
       break;
     // 正式环境
     case 'production':
-      HOST = 'http://139.224.71.226:8081/api';
+      HOST = 'http://118.178.240.175/api';
       break;
     default:
 
@@ -46,7 +46,7 @@ axios.interceptors.response.use(
 )
 
 // GET请求
-export function methodGet(url: string, params: object, loading:boolean = true) {
+export function methodGet(url: string, params?: object, loading:boolean = true):any {
     return new Promise((resolve, reject) => {
       if (loading === true) {
         Loadings = ElLoading.service({
@@ -68,7 +68,7 @@ export function methodGet(url: string, params: object, loading:boolean = true) {
   }
   
 // POST请求
-export function methodPost(url: string, params: object, loading:boolean = true) {
+export function methodPost(url: string, params: object, loading:boolean = true):any {
   return new Promise((resolve, reject) => {
     if (loading === true) {
       Loadings = ElLoading.service({
