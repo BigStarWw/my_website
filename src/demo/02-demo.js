@@ -1,11 +1,14 @@
 const demo = `<template>
-<div class="box">
-    <div class="img1 img"><img src="/src/assets/images/demo/magic-girl/magic-girl.png"></div>
+<div class="box" :style="'background: url('+ bgImgUrl +')no-repeat center'">
+    <div class="img1 img"><img :src="imgUrl"></div>
     <div class="img2 img"></div>
 </div>
 </template>
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
+
+const imgUrl = 'http://118.178.240.175/group1/M00/00/00/rBKIjWJzQXeACG0iAAOc7nUXxZ4943.png'
+const bgImgUrl = 'http://118.178.240.175/group1/M00/00/00/rBKIjWJzQZ2APaYkAAEkA4gTaio666.jpg'
 
 onMounted(() => {
     transformAnimate()
@@ -32,11 +35,10 @@ const transformAnimate = () => {
 }
 
 <\/script>
-<style scoped>
+<style>
 .box{
     min-width: 50%;
     height: 320px;
-    background: url("/src/assets/images/demo/magic-girl/bg-night.jpg")no-repeat center;
     -webkit-background-size:100% 100%;
     background-size:100% 100%;
     position: relative;

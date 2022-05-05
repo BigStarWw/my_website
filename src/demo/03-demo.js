@@ -2,16 +2,19 @@ const demo = `<template>
 <div class="container">
     <div class="wrapper">
         <div class="box1">
-            <img src="/src/assets/images/demo/element/star1.png">
+            <img :src="imgUrl1">
         </div>
         <div class="box2">
-            <img src="/src/assets/images/demo/element/star2.png">
+            <img :src="imgUrl2">
         </div>
     </div>
 </div>
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
+
+const imgUrl1 = 'http://118.178.240.175/group1/M00/00/00/rBKIjWJzQC2ASwkgAAAuZ4MWRhI505.png'
+const imgUrl2 = 'http://118.178.240.175/group1/M00/00/00/rBKIjWJzQPCABo7yAAAt7HnB5xM590.png'
 
 onMounted(() => {
     scroll()
@@ -30,7 +33,7 @@ const scroll = () => {
 }
 
 <\/script>
-<style scoped>
+<style>
 .container{
     height: 900px;
 }

@@ -9,19 +9,32 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue";
-import { Repl, ReplStore, compileFile, File } from "@vue/repl";
-import { useRoute } from 'vue-router'
+import { ref, onMounted } from "vue";
+import { Repl, ReplStore, compileFile } from "@vue/repl";
+import { useRoute } from "vue-router";
 import "@vue/repl/style.css";
+import utils from "./utils";
 
-const route = useRoute()
-const fileName = route.query.fileName || '01-demo'
+const route = useRoute();
+const fileName = route.query.fileName || "01-demo";
 const store = new ReplStore();
 const demoCode = ref("");
 const getDemoCode = async () => {
+  // 获取动态显示demo的code
   const codeModule = await import(`../../demo/${fileName}.js`);
   demoCode.value = codeModule.default;
-  store.setFiles({ "App.vue": demoCode.value });
+  let files = {}
+
+  if (fileName === '04-demo') {// 需要使用utils的地方
+    files = { "App.vue": demoCode.value, "utils.js": utils}
+  } else {
+    files = { "App.vue": demoCode.value}
+  }
+
+  // 设置文件
+  store.setFiles(files);
+
+  // 第三方文件引入
   setTimeout(() => {
     store.setImportMap({
       imports: {
@@ -35,7 +48,7 @@ const getDemoCode = async () => {
 };
 
 onMounted(() => {
-  getDemoCode()
+  getDemoCode();
 });
 </script>
 <style lang="scss" scoped>

@@ -1,3 +1,4 @@
+
 const demo = `<template>
   <div class="contraction-container">
     <div class="contraction-box">
@@ -45,9 +46,9 @@ const demo = `<template>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import * as echarts from "echarts"
 import { ElPopover } from 'element-plus'
-import { loadElementPlusStyle, loadIconFontStyle } from '/src/utils/index.ts'
+import * as echarts from "echarts"
+import { loadElementPlusStyle, loadIconFontStyle } from './utils.js'
 
 export default defineComponent({
   components: { ElPopover },
@@ -229,8 +230,6 @@ export default defineComponent({
 });
 <\/script>
 <style>
-
-
 .contraction-container {
   height: calc(100vh - 100px);
   width: 100%;

@@ -142,7 +142,7 @@ const demo = `<template>
     </tbody>
 </table>
 </template>
-<style scoped>
+<style>
 table {
     margin-left: 100px;
     margin-top: 100px;
