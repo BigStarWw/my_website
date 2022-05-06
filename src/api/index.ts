@@ -15,7 +15,8 @@ switch (process.env.NODE_ENV) {
       break;
     // 正式环境
     case 'production':
-      HOST = 'http://118.178.240.175/api';
+      HOST = './api';
+      // HOST = 'http://www.bigstars.top/api';
       break;
     default:
 

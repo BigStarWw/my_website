@@ -100,7 +100,8 @@ const goDetail = (fileName: string) => {
     },
   });
 
-  // window.open(pageHref.href, "_blank");
+  window.open(pageHref.href, "_blank");
+  
 };
 </script>
 <style lang="scss" scoped>
