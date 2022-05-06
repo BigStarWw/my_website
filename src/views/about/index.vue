@@ -51,13 +51,15 @@
       <h4 class="about-title">兴趣爱好</h4>
       <div class="about-hobbies-content">
         <div class="about-hobbies-box about-hobbies-travel">
-           <img
+          <img
             class="bigger"
             src="../../assets/images/about/travel/travel01.jpeg"
           />
-          <img
+          <el-image
             class="smaller"
-            src="../../assets/images/about/travel/travel02.jpeg"
+            lazy
+            :key="imgUrls[0]"
+            :src="imgUrls[0]"
             :style="
               appEleScrollTop > aboutHobbiesScrollDistance + 100
                 ? 'transform: translateY(' +
@@ -77,11 +79,12 @@
             <span class="about-hobbies-txt">旅行</span>
           </div>
         </div>
-
         <div class="about-hobbies-box about-hobbies-code">
-          <img
+          <el-image
             class="smaller"
-            src="../../assets/images/about/code/code01.jpg"
+            lazy
+            :key="imgUrls[1]"
+            :src="imgUrls[1]"
             :style="
               appEleScrollTop > aboutHobbiesScrollDistance + 850
                 ? 'transform: translateY(' +
@@ -90,7 +93,7 @@
                 : ''
             "
           />
-          <img class="bigger" src="../../assets/images/about/code/code02.jpg" />
+          <el-image class="bigger" :key="imgUrls[2]" :src="imgUrls[2]" lazy />
           <div
             class="about-hobbies-title"
             :class="
@@ -104,13 +107,12 @@
         </div>
 
         <div class="about-hobbies-box about-hobbies-photography">
-          <img
-            class="bigger"
-            src="../../assets/images/about/photography/pic01.jpeg"
-          />
-          <img
+          <el-image class="bigger" :key="imgUrls[3]" :src="imgUrls[3]" lazy />
+          <el-image
             class="smaller"
-            src="../../assets/images/about/photography/pic02.jpeg"
+            lazy
+            :key="imgUrls[4]"
+            :src="imgUrls[4]"
             :style="
               appEleScrollTop > aboutHobbiesScrollDistance + 1700
                 ? 'transform: translateY(' +
@@ -138,6 +140,16 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import AboutSkill from "./components/about-skill.vue";
 
+const imgUrls = [
+  new URL("../../assets/images/about/travel/travel02.jpeg", import.meta.url)
+    .href,
+  new URL("../../assets/images/about/code/code01.jpg", import.meta.url).href,
+  new URL("../../assets/images/about/code/code02.jpg", import.meta.url).href,
+  new URL("../../assets/images/about/photography/pic01.jpeg", import.meta.url)
+    .href,
+  new URL("../../assets/images/about/photography/pic02.jpeg", import.meta.url)
+    .href,
+];
 const aboutHeaderEle = ref<HTMLElement>();
 const aboutMeEle = ref<HTMLElement>();
 let appEleScrollTop = ref<number>(0);
@@ -169,8 +181,6 @@ const onScroll = () => {
     aboutHobbiesTargetHeight
   );
 };
-
-
 </script>
 <style lang="scss" scoped>
 @import "@/assets/styles/variable.scss";
@@ -209,7 +219,11 @@ const onScroll = () => {
       left: 0;
       right: 0;
       opacity: 0.1;
-      background: linear-gradient(to right bottom, #323232, var(--aboutHeaderColor, #030d71) 70px);
+      background: linear-gradient(
+        to right bottom,
+        #323232,
+        var(--aboutHeaderColor, #030d71) 70px
+      );
     }
     .about-header-txt {
       color: #fff;
@@ -307,7 +321,13 @@ const onScroll = () => {
       .about-hobbies-box {
         position: relative;
         margin-bottom: 600px;
-        img {
+        :deep(.el-image) {
+          border-radius: 5px;
+          object-fit: cover;
+          position: relative;
+          box-shadow: var(--boxShadow, 4px 5px 6px 0px #757575);
+        }
+        :deep(img) {
           border-radius: 5px;
           object-fit: cover;
           position: relative;

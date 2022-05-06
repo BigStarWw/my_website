@@ -1,6 +1,7 @@
 <template>
-  <div class="demo-repl-container">
+  <div class="demo-repl-container" v-loading="loading">
     <Repl
+     
       :store="store"
       :showCompileOutput="false"
       :showImportMap="true"
@@ -8,6 +9,7 @@
     />
   </div>
 </template>
+
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { Repl, ReplStore } from "@vue/repl";
@@ -15,6 +17,7 @@ import { useRoute } from "vue-router";
 import "@vue/repl/style.css";
 import utils from "./utils";
 
+const loading = ref(true);
 const route = useRoute();
 const fileName = route.query.fileName || "01-demo";
 const store = new ReplStore();
@@ -39,11 +42,12 @@ const getDemoCode = async () => {
     store.setImportMap({
       imports: {
         vue: "https://unpkg.com/@vue/runtime-dom@3.2.31/dist/runtime-dom.esm-browser.js",
-        echarts: "https://unpkg.com/echarts/dist/echarts.esm.js", // node_modules下面dist目录下的文件路径
+        echarts: "https://cdn.bootcdn.net/ajax/libs/echarts/5.3.2/echarts.esm.min.js", // node_modules下面dist目录下的文件路径
         "element-plus":
-          "https://cdn.jsdelivr.net/npm/element-plus@latest/dist/index.full.min.mjs",
+          "https://cdn.bootcdn.net/ajax/libs/element-plus/2.1.11/index.full.min.mjs",
       },
     });
+    loading.value = false
   }, 10);
 };
 

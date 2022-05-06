@@ -34,7 +34,6 @@
         </template>
         <template #default>
           <div class="demo-item" @click="goDetail(item.fileName)">
-            <!-- <img class="demo-item-img" :src="item.imgUrl || demoDefault" /> -->
             <el-image
               class="demo-item-img"
               :key="item.imgUrl || demoDefault"
@@ -150,7 +149,7 @@ const goDetail = (fileName: string) => {
         transform: translateY(-3px);
         transition: all 0.4s;
       }
-      ::v-deep .demo-item-img {
+      :deep(.demo-item-img) {
         width: 100%;
         height: 220px;
         img {

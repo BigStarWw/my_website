@@ -11,6 +11,7 @@ declare module 'vue' {
     ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
     ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     ElTag: typeof import('element-plus/es')['ElTag']
+    Loading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
 

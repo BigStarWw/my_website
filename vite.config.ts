@@ -5,6 +5,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import postCssPxToRem from 'postcss-pxtorem'
+import OptimizationPersist from 'vite-plugin-optimize-persist'
+import PkgConfig from 'vite-plugin-package-config'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -26,7 +29,9 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
-    })
+    }),
+    PkgConfig(),
+    OptimizationPersist()
   ],
   resolve: {
     alias: {
@@ -56,5 +61,14 @@ export default defineConfig({
       ]
     }
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'repl': ['repl']
+        }
+      }
+    }
+  }
 
 })
