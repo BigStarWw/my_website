@@ -7,14 +7,15 @@
       <div class="base-footer-links">
         <p>特别感谢以下才华横溢的创作者以及网站提供的免费素材和物料：</p>
         <div>
-          <a href="https://www.pexels.com/zh-cn/">Pexels</a>
+          <a href="https://www.pexels.com/zh-cn">Pexels</a>
           <a href="https://storyset.com/online"
             >Online illustrations by Storyset</a
           >
-          <a href="https://vuejs.org/">Vue</a>
-          <a href="https://element-plus.org/zh-CN/">Element Plus</a>
-          <a href="https://koajs.com/">koa</a>
-          <a href="https://www.mongodb.com/">MongoDB</a>
+          <a href="https://vuejs.org">Vue</a>
+          <a href="https://element-plus.org/zh-CN">Element Plus</a>
+          <a href="https://koajs.com">koa</a>
+          <a href="https://www.mongodb.com">MongoDB</a>
+          <a href="http://nginx.org">Nginx</a>
         </div>
       </div>
       <div class="base-footer-contact flex-center">
@@ -103,5 +104,32 @@ export default defineComponent({
   left: 50%;
   transform: translateX(-50%);
   background-color: transparent;
+}
+@media screen and (max-width: 960px) {
+  .base-footer-content{
+    box-sizing: border-box;
+    min-height: 280px;
+    flex-direction: column;
+    padding: 10px 0;
+    .base-footer-links{
+      width: 100%;
+    }
+  }
+  .base-footer-copy{
+    height: 60px!important;
+  }
+}
+@media screen and (max-width: 540px) {
+  .base-footer-content{
+    min-height: 550px;
+    .base-footer-links{
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+  .base-footer-copy{
+    margin-top: 30px;
+    height: 100px!important;
+  }
 }
 </style>

@@ -171,4 +171,11 @@ export default defineComponent({
     }
   }
 }
+
+@media screen and (max-width: 540px) {
+.base-header-container {
+  height: 160px;
+}
+ 
+}
 </style>

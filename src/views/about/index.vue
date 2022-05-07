@@ -86,7 +86,7 @@
             :key="imgUrls[1]"
             :src="imgUrls[1]"
             :style="
-              appEleScrollTop > aboutHobbiesScrollDistance + 850
+              appEleScrollTop > aboutHobbiesScrollDistance + 350
                 ? 'transform: translateY(' +
                   -(30 - (appEleScrollTop - aboutHobbiesScrollDistance) / 10) +
                   'px);'
@@ -114,7 +114,7 @@
             :key="imgUrls[4]"
             :src="imgUrls[4]"
             :style="
-              appEleScrollTop > aboutHobbiesScrollDistance + 1700
+              appEleScrollTop > aboutHobbiesScrollDistance + 500
                 ? 'transform: translateY(' +
                   -(30 - (appEleScrollTop - aboutHobbiesScrollDistance) / 10) +
                   'px);'
@@ -444,6 +444,12 @@ const onScroll = () => {
       animation: titleLineAnimationToRight 1.2s 0.1s;
       animation-fill-mode: forwards;
     }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .about-title {
+    visibility: hidden;
   }
 }
 </style>

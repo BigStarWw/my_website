@@ -18,7 +18,15 @@
   height: 100%;
   overflow-y: auto;
   background-color: var(--bgColor, #fff);
-}
-.main-container {
+  &::-webkit-scrollbar {
+    width: 6px; //对垂直方向滚动条
+    height: 6px; //对水平方向滚动条
+  }
+
+  //滚动的滑块
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #0003; //滚动条的颜色
+  }
 }
 </style>

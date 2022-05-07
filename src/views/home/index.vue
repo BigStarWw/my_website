@@ -42,4 +42,20 @@ onMounted(() => {
     
   }
 }
+
+@media screen and (max-width: 960px) {
+  .home-container{
+    background-size: cover;
+    .hello-word{
+      margin-top: 10vh;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .home-container{
+    .hello-word{
+      margin-top: 50%;
+    }
+  }
+}
 </style>

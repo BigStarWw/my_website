@@ -73,4 +73,14 @@ export default defineComponent({
     }
   }
 }
+
+@media screen and (max-width: 960px) {
+  .base-toolbar-container{
+    .to-top-box{
+      img{
+        height: 120px;
+      }
+    }
+  }
+}
 </style>

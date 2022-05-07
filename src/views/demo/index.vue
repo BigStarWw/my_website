@@ -9,18 +9,19 @@
     </div>
     <div class="demo-content">
       <el-skeleton
-        style="width: 31%; height: 1.97rem"
+        class="demo-skeleton"
         :loading="loading"
         animated
         v-for="(item, index) in state.lists"
       >
         <template #template>
           <el-skeleton-item
+           class="demo-item-img"
             variant="image"
-            style="width: 100%; height: 1.145rem"
+            style="width: 100%;"
           />
           <div style="padding: 7px">
-            <el-skeleton-item variant="h3" style="width: 50%" />
+            <el-skeleton-item class="demo-item-title" variant="h3" style="width: 50%" />
             <el-skeleton-item
               variant="p"
               style="width: 100%; margin: 7px 0 0.07rem 0"
@@ -29,7 +30,7 @@
               variant="p"
               style="width: 100%; margin: 7px 0 0.07rem 0"
             />
-            <el-skeleton-item variant="p" style="width: 50%" />
+            <el-skeleton-item class="demo-item-time" variant="p" style="width: 50%" />
           </div>
         </template>
         <template #default>
@@ -128,14 +129,16 @@ const goDetail = (fileName: string) => {
   .demo-content {
     width: 85%;
     margin: 50px auto;
-    min-height: 600px;
+    min-height: calc(100vh - 440px);
     display: flex;
     flex-wrap: wrap;
-    .demo-item {
+    .demo-item,
+    .demo-skeleton
+     {
       padding: 5px;
       margin: 0 2.5% 50px 0;
       width: 31%;
-      height: 400px;
+      min-height: 400px;
       background: #fff;
       overflow: hidden;
       border-radius: 5px;
@@ -188,15 +191,38 @@ const goDetail = (fileName: string) => {
         }
       }
     }
+  }
+}
 
-    .el-skeleton {
-      margin: 0 2.5% 50px 0;
-      width: 31%;
-      height: 380px;
-      overflow: hidden;
-      border-radius: 5px;
-      &:nth-child(3n) {
-        margin-right: 0;
+@media screen and (max-width: 960px) {
+
+  .demo-header{
+    height: 750px!important;
+    .demo-header-txt{
+      margin-bottom: 50px
+    }
+    .demo-header-sub-txt{
+      width: 80%;
+    }
+  }
+  .demo-content{
+    .demo-item,
+    .demo-skeleton
+    {
+      width: 84%!important;
+      min-height: 400px!important;
+      margin: 10px auto!important;
+      :deep(.demo-item-img) {
+        height: 420px!important;
+      }
+      .demo-item-desc{
+        min-height: 150px!important;
+      }
+      .demo-item-tag{
+        min-height: 70px!important;
+        .el-tag{
+          height: 100%;
+        }
       }
     }
   }

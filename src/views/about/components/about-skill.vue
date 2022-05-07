@@ -2,15 +2,17 @@
   <div class="about-skill-container">
     <div class="about-skill-bg-txt" style="right: -5%; top: 5%">web</div>
     <div class="about-skill-bg-txt" style="right: -5%; top: 25%">skills</div>
-    <div class="about-skill-bg-txt" style="right: -5%; top: 45%">professional</div>
+    <div class="about-skill-bg-txt" style="right: -5%; top: 45%">
+      professional
+    </div>
     <div class="about-skill-content">
       <p
         class="about-skill-item flex-center"
         :style="
           'left: ' +
-          ((index % 5) + index / 11) * 1.1 +
+          ((index % 5) + index / 11) * (num - 0.4) +
           'rem; top: ' +
-          (index / 5) * 1.5 +
+          (index / 5) * num +
           'rem'
         "
         v-for="(item, index) in txtArr"
@@ -22,26 +24,27 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref, reactive } from "vue";
 const txtArr = reactive<string[]>([
   "HTML5",
   "CSS3",
-  "Javascript",
+  "Js",
   "Vue",
   "React",
   "Scss",
   "Less",
   "Jquery",
   "Svg",
-  "Typescript",
+  "Ts",
   "Git",
   "Node",
   "koa",
-  // "Express",
-  "MongoDB",
+  "Express",
   "Nginx",
   // "Epg"
 ]);
+const num = ref(1.5);
+if (window.innerWidth < 540) num.value = 1.9; 
 </script>
 <style lang="scss" scoped>
 @import "@/assets/styles/variable.scss";
@@ -56,7 +59,7 @@ const txtArr = reactive<string[]>([
     font-size: 160px;
     font-weight: bold;
     color: var(--textColor, #dadada);
-    opacity: var(--aboutSkillOpacity, .5);
+    opacity: var(--aboutSkillOpacity, 0.5);
   }
   .about-skill-content {
     box-sizing: border-box;
@@ -73,6 +76,25 @@ const txtArr = reactive<string[]>([
       );
       position: absolute;
       color: #fff;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .about-skill-container {
+    width: 90%;
+    .about-skill-bg-txt {
+      &:nth-child(2){
+        top: 40%!important;
+      }
+       &:nth-child(3){
+        top: 75%!important;
+      }
+    }
+    .about-skill-item {
+      width: 220px !important;
+      height: 220px !important;
+      // transform: translateX(5%);
     }
   }
 }
