@@ -13,14 +13,12 @@
         <ul>
           <li><router-link to="/home">首页</router-link></li>
           <li><router-link to="/about">关于我</router-link></li>
-          <li><router-link to="/demo">小插件demo</router-link></li>
+          <li><router-link to="/demo">Examples</router-link></li>
         </ul>
       </nav>
 
       <div class="switch-theme-box">
-        <!-- <i class="iconfont icon-yejian dark-icon"></i> -->
         <i class="iconfont" :class="icon" @click="switchTheme"></i>
-        <!-- <i class="iconfont icon-baitian"></i> -->
       </div>
     </div>
   </header>
