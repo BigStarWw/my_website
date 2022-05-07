@@ -13,7 +13,7 @@
         <ul>
           <li><router-link to="/home">首页</router-link></li>
           <li><router-link to="/about">关于我</router-link></li>
-          <li><router-link to="/demo">Examples</router-link></li>
+          <li><router-link to="/demo">Demo</router-link></li>
         </ul>
       </nav>
 

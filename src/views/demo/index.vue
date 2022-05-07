@@ -1,9 +1,9 @@
 <template>
   <div class="demo-container">
     <div class="demo-header flex-center">
-      <p class="demo-header-txt">Examples</p>
+      <p class="demo-header-txt">Demo</p>
       <p class="demo-header-sub-txt">
-        这个版块主要是展示一些学习、开发过程中总结的“花里胡哨”的examples；
+        这个版块主要是展示一些学习、开发过程中总结的“花里胡哨”的demo；
         主要是记录和总结，如果能给开发的朋友们提供一些思路也是极好滴。
       </p>
     </div>
