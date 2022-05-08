@@ -473,7 +473,8 @@ const onScroll = () => {
   .about-hobbies-txt {
     font-size: 12px !important;
   }
-  .statistic-icon i .statistic-txt span,
+  .statistic-icon i,
+  .statistic-txt span,
   .about-me-desc-txt:first-child {
     font-size: 14px !important;
   }
