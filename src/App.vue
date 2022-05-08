@@ -7,7 +7,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// 预先加载vue/repl.js
+(async () => {
+  const res = await import("@vue/repl");
+})();
+</script>
 
 <style lang="scss">
 @import "@/assets/styles/animation.scss";
