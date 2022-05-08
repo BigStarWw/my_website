@@ -19,7 +19,11 @@
         </div>
       </div>
       <div class="base-footer-contact flex-center">
-        <div class="contact-way"><a href="https://github.com/BigStarWw/my_website/tree/dev">Github: @BigStarWw</a></div>
+        <div class="contact-way">
+          <a href="https://github.com/BigStarWw/my_website/tree/dev"
+            >Github: @BigStarWw</a
+          >
+        </div>
         <div class="contact-way">邮箱: 956880047@qq.com</div>
       </div>
     </div>
@@ -52,7 +56,7 @@ export default defineComponent({
 @import "@/assets/styles/variable.scss";
 .base-footer-container {
   width: 100%;
-  background-color:  var(--footerBgColor, $mainTxtColor);
+  background-color: var(--footerBgColor, $mainTxtColor);
   .base-footer-content {
     height: 120px;
     width: 100%;
@@ -69,6 +73,7 @@ export default defineComponent({
       a {
         color: #fff;
         margin-bottom: 10px;
+        font-size: 0.09rem;
       }
       a {
         margin: 0 20px;
@@ -82,9 +87,11 @@ export default defineComponent({
       .contact-way {
         margin-right: 10px;
         color: #fff;
-        a{
+        font-size: 0.09rem;
+        a {
           text-decoration: none;
           color: #fff;
+          font-size: 0.09rem;
         }
       }
     }
@@ -95,6 +102,7 @@ export default defineComponent({
     text-align: center;
     width: 100%;
     color: #fff;
+    font-size: 12px;
   }
 }
 
@@ -106,30 +114,38 @@ export default defineComponent({
   background-color: transparent;
 }
 @media screen and (max-width: 960px) {
-  .base-footer-content{
+  .base-footer-content {
     box-sizing: border-box;
     min-height: 280px;
     flex-direction: column;
     padding: 10px 0;
-    .base-footer-links{
+    .base-footer-links {
       width: 100%;
     }
   }
-  .base-footer-copy{
-    height: 60px!important;
+  .base-footer-copy {
+    height: 60px !important;
   }
 }
 @media screen and (max-width: 540px) {
-  .base-footer-content{
+  .base-footer-content {
     min-height: 550px;
-    .base-footer-links{
+    .base-footer-links {
       width: 100%;
       margin-bottom: 30px;
     }
   }
-  .base-footer-copy{
+  .base-footer-copy {
     margin-top: 30px;
-    height: 100px!important;
+    height: 100px !important;
+  }
+
+  .base-footer-links p,
+  .base-footer-links a,
+  .contact-way,
+  .contact-way a,
+  .base-footer-copy {
+    font-size: 0.2rem !important;
   }
 }
 </style>

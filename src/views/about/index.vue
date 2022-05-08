@@ -97,7 +97,8 @@
           <div
             class="about-hobbies-title"
             :class="
-              appEleScrollTop > aboutHobbiesScrollDistance + 1000
+              appEleScrollTop >
+              aboutHobbiesScrollDistance + (isSmallScreen ? 100 : 1000)
                 ? 'titleAnimation'
                 : ''
             "
@@ -124,7 +125,8 @@
           <div
             class="about-hobbies-title"
             :class="
-              appEleScrollTop > aboutHobbiesScrollDistance + 1900
+              appEleScrollTop >
+              aboutHobbiesScrollDistance + (isSmallScreen ? 100 : 1900)
                 ? 'titleAnimation'
                 : ''
             "
@@ -155,6 +157,8 @@ const aboutMeEle = ref<HTMLElement>();
 let appEleScrollTop = ref<number>(0);
 let aboutMeTargetDistance = ref<number>(0);
 let aboutHobbiesScrollDistance = ref<number>(0);
+const isSmallScreen = ref(false);
+if (window.innerWidth < 540) isSmallScreen.value = true;
 
 onMounted(() => {
   const appEle = document.getElementById("app-container") as HTMLElement;
@@ -227,7 +231,7 @@ const onScroll = () => {
     }
     .about-header-txt {
       color: #fff;
-      font-size: 100px;
+      font-size: 0.6rem;
       font-style: italic;
       font-weight: bold;
     }
@@ -249,15 +253,15 @@ const onScroll = () => {
         .about-me-desc-txt {
           text-align: center;
           margin-bottom: 12px;
-          font-size: 20px;
+          font-size: 0.11rem;
           color: var(--textColor, #666);
           font-family: system-ui;
           span {
-            font-size: 20px;
+            font-size: 0.11rem;
             color: var(--textColor, #666);
           }
           &:first-child {
-            font-size: 22px;
+            font-size: 0.13rem;
             color: var(--textColor, $mainTxtColor);
             margin-bottom: 40px;
           }
@@ -291,17 +295,18 @@ const onScroll = () => {
         text-align: center;
         margin-bottom: 60px;
         i {
-          font-size: 52px;
+          font-size: 0.34rem;
           color: $mainColor;
         }
       }
       .statistic-txt {
         margin-bottom: 25px;
         color: #ccc;
+        font-size: 0.1rem;
         span {
           color: $mainColor;
           margin-right: 5px;
-          font-size: 48px;
+          font-size: 0.24rem;
         }
       }
     }
@@ -352,7 +357,7 @@ const onScroll = () => {
           z-index: 1;
           .about-hobbies-txt {
             display: inline-block;
-            font-size: 34px;
+            font-size: 0.2rem;
             color: var(--textGrayColor, $mainTxtColor);
             opacity: 0;
           }
@@ -451,5 +456,33 @@ const onScroll = () => {
   .about-title {
     visibility: hidden;
   }
+  .about-statistic {
+    padding: 0 5% !important;
+  }
+  .statistic-icon {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  .about-me-desc-txt,
+  .about-me-desc-txt span {
+    opacity: 0.7;
+  }
+  .about-me-desc-txt,
+  .about-me-desc-txt span,
+  .statistic-txt,
+  .about-hobbies-txt {
+    font-size: 12px !important;
+  }
+  .statistic-icon i .statistic-txt span,
+  .about-me-desc-txt:first-child {
+    font-size: 14px !important;
+  }
+ 
 }
+@media screen and (max-width: 540px){
+   .about-hobbies{
+    padding-top: 400px!important;
+  }
+}
+
 </style>

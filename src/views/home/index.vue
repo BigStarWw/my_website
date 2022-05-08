@@ -33,9 +33,9 @@ onMounted(() => {
 
   .hello-word {
     margin: 0.85rem 0 56px 0;
-    font-size: 160px;
+    font-size: .85rem;
     span{
-        font-size: 38px; 
+        font-size: .22rem; 
         margin-left: 20px;
         letter-spacing: 1px;
     }
@@ -55,6 +55,10 @@ onMounted(() => {
   .home-container{
     .hello-word{
       margin-top: 50%;
+      font-size: 54px!important;
+      span{
+        font-size: 14px!important;
+      }
     }
   }
 }

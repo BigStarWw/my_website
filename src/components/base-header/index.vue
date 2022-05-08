@@ -34,7 +34,7 @@ export default defineComponent({
       isDark: false,
       appEleScrollTop: 0,
       aboutMeTargetDistance: 0,
-      bodyEle: {} as HTMLBodyElement
+      bodyEle: {} as HTMLBodyElement,
     };
   },
   watch: {
@@ -43,20 +43,20 @@ export default defineComponent({
         this.isHomePage = route.path === "/home";
         this.isDemoReplPage = route.path === "/demo-repl";
 
-        this.initTheme()
+        this.initTheme();
       },
     },
   },
   computed: {
-    icon():string {
+    icon(): string {
       return this.isDark ? "icon-yejian2 dark-icon" : "icon-A";
     },
   },
   mounted() {
     const appEle = document.getElementById("app-container") as HTMLElement;
     appEle.addEventListener("scroll", this.onScroll);
-    this.bodyEle = document.getElementsByTagName("body")[0]
-    this.initTheme()
+    this.bodyEle = document.getElementsByTagName("body")[0];
+    this.initTheme();
   },
   beforeUnmount() {
     const appEle = document.getElementById("app-container") as HTMLElement;
@@ -64,20 +64,22 @@ export default defineComponent({
   },
   methods: {
     initTheme() {
-      this.isDark = localStorage.getItem("theme") === 'darkTheme' || false
-      this.isDark ? this.bodyEle.classList.add('dark') : this.bodyEle.classList.remove('dark')
+      this.isDark = localStorage.getItem("theme") === "darkTheme" || false;
+      this.isDark
+        ? this.bodyEle.classList.add("dark")
+        : this.bodyEle.classList.remove("dark");
     },
     onScroll() {
       const appEle = document.getElementById("app-container") as HTMLElement;
       this.appEleScrollTop = appEle.scrollTop;
     },
     switchTheme() {
-      this.isDark = !this.isDark
+      this.isDark = !this.isDark;
       // 切换主题
-      this.bodyEle.classList.toggle('dark')
+      this.bodyEle.classList.toggle("dark");
       // 并且保存于localstorage中
-      localStorage.setItem("theme", this.isDark ? 'darkTheme' : '')
-    }
+      localStorage.setItem("theme", this.isDark ? "darkTheme" : "");
+    },
   },
 });
 </script>
@@ -136,17 +138,15 @@ export default defineComponent({
           text-decoration: none;
           color: #fff;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 0.1rem;
         }
       }
     }
     .switch-theme-box {
       i {
-        font-size: 32px;
+        font-size: 0.18rem;
         color: #fff;
         cursor: pointer;
-      }
-      i.dark-icon {
       }
     }
   }
@@ -160,22 +160,25 @@ export default defineComponent({
     .nav {
       li {
         a {
-           color: var(--textColor, $mainTxtColor);
+          color: var(--textColor, $mainTxtColor);
         }
       }
     }
     .switch-theme-box {
       i {
-         color: var(--textColor, $mainTxtColor);
+        color: var(--textColor, $mainTxtColor);
       }
     }
   }
 }
 
 @media screen and (max-width: 540px) {
-.base-header-container {
-  height: 160px;
-}
- 
+  .base-header-container {
+    height: 160px;
+    .nav li a,
+    i {
+      font-size: 12px !important;
+    }
+  }
 }
 </style>

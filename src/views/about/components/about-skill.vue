@@ -56,7 +56,7 @@ if (window.innerWidth < 540) num.value = 1.9;
   .about-skill-bg-txt {
     position: absolute;
     text-align: right;
-    font-size: 160px;
+    font-size: .8rem;
     font-weight: bold;
     color: var(--textColor, #dadada);
     opacity: var(--aboutSkillOpacity, 0.5);
@@ -83,6 +83,9 @@ if (window.innerWidth < 540) num.value = 1.9;
 @media screen and (max-width: 540px) {
   .about-skill-container {
     width: 90%;
+    .about-skill-bg-txt{
+      font-size: 1.2rem!important;
+    }
     .about-skill-bg-txt {
       &:nth-child(2){
         top: 40%!important;
@@ -94,7 +97,7 @@ if (window.innerWidth < 540) num.value = 1.9;
     .about-skill-item {
       width: 220px !important;
       height: 220px !important;
-      // transform: translateX(5%);
+      font-size: 12px!important;
     }
   }
 }

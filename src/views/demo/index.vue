@@ -116,13 +116,13 @@ const goDetail = (fileName: string) => {
     position: relative;
     .demo-header-txt {
       color: #fff;
-      font-size: 50px;
+      font-size: .38rem;
       font-style: italic;
       font-weight: bold;
     }
     .demo-header-sub-txt {
       color: #fff;
-      font-size: 18px;
+      font-size: .1rem;
       opacity: 0.8;
     }
   }
@@ -163,7 +163,7 @@ const goDetail = (fileName: string) => {
         padding: 7px;
         .demo-item-title {
           color: $mainTxtColor;
-          font-size: 22px;
+          font-size: .13rem;
         }
         .demo-item-desc {
           color: $mainsSubTxtColor;
@@ -199,10 +199,12 @@ const goDetail = (fileName: string) => {
   .demo-header{
     height: 750px!important;
     .demo-header-txt{
-      margin-bottom: 50px
+      margin-bottom: 50px;
+      font-size: 18px!important;
     }
     .demo-header-sub-txt{
       width: 80%;
+      font-size: 12px!important;
     }
   }
   .demo-content{
@@ -215,11 +217,15 @@ const goDetail = (fileName: string) => {
       :deep(.demo-item-img) {
         height: 420px!important;
       }
+      .demo-item-title{
+        font-size: 14px!important;
+      }
       .demo-item-desc{
-        min-height: 150px!important;
+        font-size: 12px!important;
+        min-height: 180px!important;
       }
       .demo-item-tag{
-        min-height: 70px!important;
+        min-height: 90px!important;
         .el-tag{
           height: 100%;
         }
