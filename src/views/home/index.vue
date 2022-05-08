@@ -33,31 +33,30 @@ onMounted(() => {
 
   .hello-word {
     margin: 0.85rem 0 56px 0;
-    font-size: .85rem;
-    span{
-        font-size: .22rem; 
-        margin-left: 20px;
-        letter-spacing: 1px;
+    font-size: 0.85rem;
+    span {
+      font-size: 0.22rem;
+      margin-left: 20px;
+      letter-spacing: 1px;
     }
-    
   }
 }
 
 @media screen and (max-width: 960px) {
-  .home-container{
+  .home-container {
     background-size: cover;
-    .hello-word{
+    .hello-word {
       margin-top: 10vh;
     }
   }
 }
 @media screen and (max-width: 640px) {
-  .home-container{
-    .hello-word{
+  .home-container {
+    .hello-word {
       margin-top: 50%;
-      font-size: 54px!important;
-      span{
-        font-size: 14px!important;
+      font-size: 54px !important;
+      span {
+        font-size: 14px !important;
       }
     }
   }

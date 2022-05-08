@@ -13,7 +13,7 @@ export default defineComponent({
 
   setup(props, context) {
     let isShow = ref(false);
-  
+
     // 滚动到顶部
     const onScrollToTop = () => {
       const appEle = document.getElementById("app-container") as HTMLElement;
@@ -37,13 +37,13 @@ export default defineComponent({
 
     onMounted(() => {
       const appEle = document.getElementById("app-container") as HTMLElement;
-      appEle.addEventListener('scroll', switchRocketShow);
+      appEle.addEventListener("scroll", switchRocketShow);
     });
 
     onBeforeUnmount(() => {
       const appEle = document.getElementById("app-container") as HTMLElement;
-      appEle.removeEventListener('scroll', switchRocketShow);
-    })
+      appEle.removeEventListener("scroll", switchRocketShow);
+    });
 
     return {
       isShow,
@@ -75,9 +75,9 @@ export default defineComponent({
 }
 
 @media screen and (max-width: 960px) {
-  .base-toolbar-container{
-    .to-top-box{
-      img{
+  .base-toolbar-container {
+    .to-top-box {
+      img {
         height: 120px;
       }
     }

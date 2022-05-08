@@ -16,21 +16,29 @@
       >
         <template #template>
           <el-skeleton-item
-           class="demo-item-img"
+            class="demo-item-img"
             variant="image"
-            style="width: 100%;"
+            style="width: 100%"
           />
           <div style="padding: 7px">
-            <el-skeleton-item class="demo-item-title" variant="h3" style="width: 50%" />
             <el-skeleton-item
-              variant="p"
-              style="width: 100%; margin: 7px 0 0.07rem 0"
+              class="demo-item-title"
+              variant="h3"
+              style="width: 50%"
             />
             <el-skeleton-item
               variant="p"
               style="width: 100%; margin: 7px 0 0.07rem 0"
             />
-            <el-skeleton-item class="demo-item-time" variant="p" style="width: 50%" />
+            <el-skeleton-item
+              variant="p"
+              style="width: 100%; margin: 7px 0 0.07rem 0"
+            />
+            <el-skeleton-item
+              class="demo-item-time"
+              variant="p"
+              style="width: 50%"
+            />
           </div>
         </template>
         <template #default>
@@ -101,7 +109,6 @@ const goDetail = (fileName: string) => {
   });
 
   window.open(pageHref.href, "_blank");
-  
 };
 </script>
 <style lang="scss" scoped>
@@ -116,13 +123,13 @@ const goDetail = (fileName: string) => {
     position: relative;
     .demo-header-txt {
       color: #fff;
-      font-size: .38rem;
+      font-size: 0.38rem;
       font-style: italic;
       font-weight: bold;
     }
     .demo-header-sub-txt {
       color: #fff;
-      font-size: .1rem;
+      font-size: 0.1rem;
       opacity: 0.8;
     }
   }
@@ -133,8 +140,7 @@ const goDetail = (fileName: string) => {
     display: flex;
     flex-wrap: wrap;
     .demo-item,
-    .demo-skeleton
-     {
+    .demo-skeleton {
       padding: 5px;
       margin: 0 2.5% 50px 0;
       width: 31%;
@@ -163,7 +169,7 @@ const goDetail = (fileName: string) => {
         padding: 7px;
         .demo-item-title {
           color: $mainTxtColor;
-          font-size: .13rem;
+          font-size: 0.13rem;
         }
         .demo-item-desc {
           color: $mainsSubTxtColor;
@@ -195,38 +201,36 @@ const goDetail = (fileName: string) => {
 }
 
 @media screen and (max-width: 960px) {
-
-  .demo-header{
-    height: 750px!important;
-    .demo-header-txt{
+  .demo-header {
+    height: 750px !important;
+    .demo-header-txt {
       margin-bottom: 50px;
-      font-size: 18px!important;
+      font-size: 18px !important;
     }
-    .demo-header-sub-txt{
+    .demo-header-sub-txt {
       width: 80%;
-      font-size: 12px!important;
+      font-size: 12px !important;
     }
   }
-  .demo-content{
+  .demo-content {
     .demo-item,
-    .demo-skeleton
-    {
-      width: 84%!important;
-      min-height: 400px!important;
-      margin: 10px auto!important;
+    .demo-skeleton {
+      width: 84% !important;
+      min-height: 400px !important;
+      margin: 10px auto !important;
       :deep(.demo-item-img) {
-        height: 420px!important;
+        height: 420px !important;
       }
-      .demo-item-title{
-        font-size: 14px!important;
+      .demo-item-title {
+        font-size: 14px !important;
       }
-      .demo-item-desc{
-        font-size: 12px!important;
-        min-height: 180px!important;
+      .demo-item-desc {
+        font-size: 12px !important;
+        min-height: 180px !important;
       }
-      .demo-item-tag{
-        min-height: 90px!important;
-        .el-tag{
+      .demo-item-tag {
+        min-height: 90px !important;
+        .el-tag {
           height: 100%;
         }
       }

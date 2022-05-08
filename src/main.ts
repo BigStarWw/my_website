@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import * as common from './assets/js/common'
 import * as constant from './assets/js/constant'
-import  setupBaseComponents from './components/index'
+import setupBaseComponents from './components/index'
 import 'amfe-flexible';
 
 const app = createApp(App)

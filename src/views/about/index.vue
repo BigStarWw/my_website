@@ -477,12 +477,10 @@ const onScroll = () => {
   .about-me-desc-txt:first-child {
     font-size: 14px !important;
   }
- 
 }
-@media screen and (max-width: 540px){
-   .about-hobbies{
-    padding-top: 400px!important;
+@media screen and (max-width: 540px) {
+  .about-hobbies {
+    padding-top: 400px !important;
   }
 }
-
 </style>

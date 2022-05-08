@@ -49,7 +49,7 @@ export default defineConfig({
           // Use * at the start or end of a word. (['*position*'] will match background-position-y)
           // Use ! to not match a property. Example: ['*', '!letter-spacing']
           // Combine the "not" prefix with the other prefixes. Example: ['*', '!font*']
-          propList: ['*','!font-size'], // eg: ['font', 'font-size', 'line-height', 'letter-spacing']
+          propList: ['*', '!font-size'], // eg: ['font', 'font-size', 'line-height', 'letter-spacing']
           replace: false, // (Boolean) Replaces rules containing rems instead of adding fallbacks. false在样式中只显示转化的rem单位; true 原来设置的px和现在的rem都显示
           mediaQuery: false, // (Boolean) Allow px to be converted in media queries. 允许在媒体查询中转换px。
           minPixelValue: 15, // Set the minimum pixel value to replace. 最小px值才能被rem转化

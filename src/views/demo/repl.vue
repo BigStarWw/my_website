@@ -68,27 +68,4 @@ onMounted(() => {
     --header-height: 50px;
   }
 }
-@media screen and (max-width: 960px) {
-  .vue-repl {
-    :deep(.split-pane) {
-      flex-wrap: wrap;
-    }
-    :deep(.left),
-    :deep(.right)
-     {
-      width: 100% !important;
-      height: 50% !important;
-    }
-  }
-}
-@media screen and (max-width: 600px) {
-  .vue-repl {
-    :deep(.left),
-    :deep(.right)
-     {
-      width: 100% !important;
-      height: 100% !important;
-    }
-  }
-}
 </style>
