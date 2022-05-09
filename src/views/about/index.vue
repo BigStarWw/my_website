@@ -193,7 +193,7 @@ const onScroll = () => {
   // 公共样式
   .about-title {
     color: var(--textColor, #3b3e4b);
-    font-size: 40px;
+    font-size: .22rem;
     margin-bottom: 80px;
     position: relative;
     &:before {

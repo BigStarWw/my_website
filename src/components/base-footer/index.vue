@@ -20,7 +20,7 @@
       </div>
       <div class="base-footer-contact flex-center">
         <div class="contact-way">
-          <a href="https://github.com/BigStarWw/my_website/tree/dev"
+          <a href="https://github.com/BigStarWw/my_website"
             >Github: @BigStarWw</a
           >
         </div>

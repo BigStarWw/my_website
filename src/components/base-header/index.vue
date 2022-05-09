@@ -119,9 +119,9 @@ export default defineComponent({
           content: "";
           position: absolute;
           left: 50%;
-          bottom: -3px;
+          bottom: -5px;
           width: 0;
-          height: 1px;
+          height: 2px;
           background-color: #fff;
           transition: all 0.2s;
         }
