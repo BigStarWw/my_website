@@ -56,7 +56,7 @@ if (window.innerWidth < 540) num.value = 1.9;
   .about-skill-bg-txt {
     position: absolute;
     text-align: right;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: var(--textColor, #dadada);
     opacity: var(--aboutSkillOpacity, 0.5);

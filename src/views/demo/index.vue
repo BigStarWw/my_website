@@ -123,7 +123,7 @@ const goDetail = (fileName: string) => {
     position: relative;
     .demo-header-txt {
       color: #fff;
-      font-size: 0.38rem;
+      font-size: 0.32rem;
       font-style: italic;
       font-weight: bold;
     }

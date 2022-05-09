@@ -33,9 +33,9 @@ onMounted(() => {
 
   .hello-word {
     margin: 0.85rem 0 56px 0;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     span {
-      font-size: 0.22rem;
+      font-size: 0.19rem;
       margin-left: 20px;
       letter-spacing: 1px;
     }

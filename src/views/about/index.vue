@@ -193,7 +193,7 @@ const onScroll = () => {
   // 公共样式
   .about-title {
     color: var(--textColor, #3b3e4b);
-    font-size: .22rem;
+    font-size: .18rem;
     margin-bottom: 80px;
     position: relative;
     &:before {
@@ -231,7 +231,7 @@ const onScroll = () => {
     }
     .about-header-txt {
       color: #fff;
-      font-size: 0.6rem;
+      font-size: 0.56rem;
       font-style: italic;
       font-weight: bold;
     }
@@ -357,7 +357,7 @@ const onScroll = () => {
           z-index: 1;
           .about-hobbies-txt {
             display: inline-block;
-            font-size: 0.2rem;
+            font-size: 0.16rem;
             color: var(--textGrayColor, $mainTxtColor);
             opacity: 0;
           }
