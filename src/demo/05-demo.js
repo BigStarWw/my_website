@@ -78,7 +78,7 @@ methods: {
   }
 }
 });
-</script>
+<\/script>
 <style>
 .contraction-container {
   margin-top: 60px;
