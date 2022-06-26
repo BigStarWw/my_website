@@ -1,19 +1,18 @@
 const demo = `<template>
-<canvas id="canvas" ref="canvasImg"> </canvas>
-
+<canvas id="canvas" ref="canvasImg"></canvas>
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 
 const canvasImg: any = ref();
 const image: HTMLImageElement = new Image();
-const imgUrl = 'http://118.178.240.175/group1/M00/00/00/rBKIjWK4MP2AdLl1AAH68L7Mooc099.png'
+const imgUrl = 'http://www.bigstars.top/group1/M00/00/00/rBKIjWK4MP2AdLl1AAH68L7Mooc099.png'
 
 onMounted(() => {
-  init1();
+  init();
 });
 
-const init1 = () => {
+const init = () => {
   let ctx = canvasImg.value.getContext("2d");
 
   image.src = imgUrl;
