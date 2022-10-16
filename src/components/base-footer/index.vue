@@ -30,7 +30,7 @@
 
     <div class="base-footer-copy">
       Copyright&copy; 2022 会闪的大星星，all rights reserved.<br/>
-      网站备案号 蜀ICP备19035700号-1
+      <a href="https://beian.miit.gov.cn/" target="_blank">网站备案号 蜀ICP备19035700号-1</a>
     </div>
   </footer>
 </template>
@@ -104,6 +104,11 @@ export default defineComponent({
     width: 100%;
     color: #fff;
     font-size: 12px;
+    a{
+      color: #fff;
+      font-size: 12px;
+      text-decoration: none;
+    }
   }
 }
 
