@@ -29,7 +29,8 @@
     </div>
 
     <div class="base-footer-copy">
-      Copyright&copy; 2022 会闪的大星星，all rights reserved.
+      Copyright&copy; 2022 会闪的大星星，all rights reserved.<br/>
+      网站备案号 蜀ICP备19035700号-1
     </div>
   </footer>
 </template>
@@ -97,7 +98,7 @@ export default defineComponent({
     }
   }
   .base-footer-copy {
-    height: 40px;
+    height: 80px;
     line-height: 40px;
     text-align: center;
     width: 100%;
@@ -124,7 +125,7 @@ export default defineComponent({
     }
   }
   .base-footer-copy {
-    height: 60px !important;
+    height: 80px !important;
   }
 }
 @media screen and (max-width: 540px) {
@@ -137,7 +138,8 @@ export default defineComponent({
   }
   .base-footer-copy {
     margin-top: 30px;
-    height: 100px !important;
+    height: 200px !important;
+    line-height: 90px!important;
   }
 
   .base-footer-links p,
