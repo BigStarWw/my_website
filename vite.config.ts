@@ -50,7 +50,7 @@ export default defineConfig({
           // Use ! to not match a property. Example: ['*', '!letter-spacing']
           // Combine the "not" prefix with the other prefixes. Example: ['*', '!font*']
           propList: ['*', '!font-size'], // eg: ['font', 'font-size', 'line-height', 'letter-spacing']
-          replace: false, // (Boolean) Replaces rules containing rems instead of adding fallbacks. false在样式中只显示转化的rem单位; true 原来设置的px和现在的rem都显示
+          replace: false, // (Boolean) Replaces rules containing rems instead of adding fallbacks. true 在样式中只显示转化的rem单位;  false原来设置的px和现在的rem都显示
           mediaQuery: false, // (Boolean) Allow px to be converted in media queries. 允许在媒体查询中转换px。
           minPixelValue: 15, // Set the minimum pixel value to replace. 最小px值才能被rem转化
           // selectorBlackList: ['not-rem'], //(Array) The selectors to ignore and leave as px 包含test字符的样式不会转成rem; 只是当前类不会转化rem，如果一个元素有多个类，其他类还是会转化rem
